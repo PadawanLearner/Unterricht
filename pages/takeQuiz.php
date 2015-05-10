@@ -1,8 +1,5 @@
 <?php
-//choose type of quiz
-	//radio buttons for length of quiz
 
-//clickable start quiz
 ?>
 
 <!DOCTYPE html>

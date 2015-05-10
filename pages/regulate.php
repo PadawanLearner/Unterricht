@@ -1,4 +1,6 @@
 <?php 
+	session_start();
+ 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST' && (isset($_POST['question'])) &&(isset($_POST['answer']))){
 		require('../../../phpFunctions/dbConnect.php');
 		//PDO mysqli insert question
@@ -25,11 +27,45 @@
 	}
 	elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['length']) && isset($_POST['category'])){
 		
-		//assign each of the below categories to an sql select statement with limit of POST length
-		 foreach ($_POST['category'] as $category) {
-			echo "You selected: $category <br>";
+		require('../../../phpFunctions/dbConnect.php');
+		
+		$query = "SELECT question, answer FROM questions WHERE category =";
+		foreach ($_POST['category'] as $category) {
+			$query .= ("'".$category."'or");
 		}
-		echo "of length ".$_POST['length'];
+		
+		$query = substr($query,0, strlen($query)-2)."ORDER BY RAND() LIMIT ".$_POST['length'];
+
+		
+		if ($stmt = mysqli_prepare($conn, $query)) {
+
+		
+			mysqli_stmt_execute($stmt);
+
+		
+			mysqli_stmt_bind_result($stmt, $question, $answer);
+
+			
+			$questions = array();
+			$answers = array();
+			$ctr=0;
+			while (mysqli_stmt_fetch($stmt)) {		
+				array_push($questions,$question);
+				array_push($answers,$answer);
+			}
+			
+			//Store quiz into SESSION 
+			 $_SESSION["questions"] = $questions;
+			 $_SESSION["answers"] = $answers;
+			 $_SESSION["ctr"] = 0;
+	
+			mysqli_stmt_close($stmt);
+		}		 
+		 //Close connection
+		 mysqli_close($conn);
+		
+	
+		exit(header('Location: http://tristanlankford.com/apps/Unterricht/pages/quiz.php'));
 	}
 	else{
 		echo "go to homepage";
