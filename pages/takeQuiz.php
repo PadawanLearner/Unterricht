@@ -20,7 +20,13 @@
 <!-- Select Quiz Parameters -->
 <form  action="regulate.php" method="POST">
 <?php
-	require('../../../phpFunctions/dbConnect.php');
+	if($_SERVER['HTTP_HOST'] == "localhost"){
+		echo $_SERVER['SERVER_ADDR']."<br>";
+		require('../../utility/dbConnect.php');
+	}
+	else{
+		require('../../../phpFunctions/dbConnect.php');
+	}
 	//PDO mysqli insert question
 	$query= file_get_contents("../sql/selectQuestionCategories.sql");
 	$stmt = mysqli_prepare( $conn, $query);

@@ -1,12 +1,17 @@
 <?php 
 	session_start();
  
-	if ($_SERVER['REQUEST_METHOD'] == 'POST' && (isset($_POST['question'])) &&(isset($_POST['answer']))){
-		require('../../../phpFunctions/dbConnect.php');
-		//PDO mysqli insert question
-		$query= file_get_contents("../sql/insertQuestionAnswerCategory.sql");
-		$stmt = mysqli_prepare( $conn, $query);
+	if ((isset($_POST['question'])) &&(isset($_POST['answer']))){
 		
+		if($_SERVER['HTTP_HOST'] == "localhost"){
+			require('../../utility/dbConnect.php');
+		}
+		else{
+			require('../../../phpFunctions/dbConnect.php');
+		}
+		//PDO mysqli insert question, each question has the question itself, the answer, and the category
+		$query= file_get_contents("../sql/insertQuestionAnswerCategory.sql");
+		$stmt = mysqli_prepare( $conn, $query);		
 		mysqli_stmt_bind_param($stmt, "sss", $newQuestion, $newAnswer, $newCategory);
 		$newQuestion = $_POST['question'];
 		$newAnswer = $_POST['answer'];
@@ -27,8 +32,12 @@
 	}
 	elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['length']) && isset($_POST['category'])){
 		
-		require('../../../phpFunctions/dbConnect.php');
-		
+		if($_SERVER['HTTP_HOST'] == "localhost"){
+			require('../../utility/dbConnect.php');
+		}
+		else{
+			require('../../../phpFunctions/dbConnect.php');
+		}
 		$query = "SELECT question, answer FROM questions WHERE category =";
 		foreach ($_POST['category'] as $category) {
 			$query .= ("'".$category."'or");
