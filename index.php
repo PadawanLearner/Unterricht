@@ -37,6 +37,23 @@ To Do
 
 <body>
 
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Unterricht</a>
+    <div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Insert Question</a></li>
+        <li><a href="#">Take Quiz</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- Take Quiz-->
 <form class="form-inline" role="form" action="pages/takeQuiz.php" method="POST">
   <button type="submit" class="btn btn-default" name="takeQuiz">Take Quiz</button>
