@@ -2,15 +2,18 @@
 
 
 /*
-To Do
-	-Make check all box for categories on takeQuiz.php
-	-Implement question type for SQL db (MC, T/F, problem solving,fill-in-the-blank, etc)
-	-parse bad input for SQL (quotes)
-	-write a PHP|js function that searches for \" and then its turns " into &quot; 	 ....the quote is being turned into \" before it even gets to SQL. Its the PHP parsing, not SQL
-	-Create header of tabs "Take Quiz" "Insert Question".  When user is in one tab and clicks on the other, use jQuery to hide the current tabs content
-	and display the new tabs content, ie do not refresh the page.  The goal is to have a constant state app
-	
-	
+
+This app seeks a new design.  Instead of a quiz-like interaction, this app will provide handy shortcuts and info that will change everyday at midnight.
+Each "daily" will have:
+	-a Linux command review &|| question
+	-a Vim command
+	-a definition of a word you want to incorporate into your language.
+	-*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
+
+
+ToDo:
+	-make insertQuestion password protected
+	-	
 	
 */
 ?>
@@ -47,9 +50,8 @@ To Do
     <div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Insert Question</a></li>
-        <li><a href="#">Take Quiz</a></li>
+       <li><a href="pages/insertNew.php">Insert Question</a></li>
+        <li><a href="pages/takeQuiz.php">See the Daily!</a></li>
       </ul>
     </div>
   </div>

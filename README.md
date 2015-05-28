@@ -1,6 +1,8 @@
 # Unterricht
 
-This is kind of like Quizlet, but personalized for programmers and brief daily use.  
+The plan of this app changed from a Quizlet-like app, to something much more brief for convenient learning.
 
-I plan to personalize it towards the "20 and 20 rule" (do something for 20 minutes every morning and 20 mintues every evening to get better at it). 
+Essentially the new idea is to have a daily review of useful shortcuts and commands for Linux, Vim, etc.  The daily shortcuts tips will change every night at midnight, and will be referred to as "The Daily."  I hope to add other neat features to The Daily.
 
+I hope to eventually create "The Weekly" as well.  
+   
