@@ -8,6 +8,7 @@ Each "daily" will have:
 	-a Linux command review &|| question
 	-a Vim command
 	-a definition of a word you want to incorporate into your language.
+	-a tricky syntax of the day line
 	-*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
 
 
