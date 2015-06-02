@@ -74,7 +74,7 @@
 		 mysqli_close($conn);
 		
 	
-		exit(header('Location: http://tristanlankford.com/apps/Unterricht/pages/quiz.php'));
+		exit(header('Location: quiz.php'));
 	}
 	else{
 		echo "go to homepage";

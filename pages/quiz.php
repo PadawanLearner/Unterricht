@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nextQuestion'])){
 
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nextQuestion'])){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
 </head>
 
 <body>
-
 <?php 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['displayAnswer'])){
@@ -40,6 +40,7 @@ else{
 }
 
 echo '
+
 			<form action="quiz.php" method="POST">			
 				<div class="row">
 					<div class="col-xs-6">

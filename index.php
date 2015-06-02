@@ -9,11 +9,11 @@ Each "daily" will have:
 	-a Vim command
 	-a definition of a word you want to incorporate into your language.
 	-*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
-
+	-*future*: includes a daily picture of a concept that is illustrated completely as visual. Example: http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg
 
 ToDo:
 	-make insertQuestion password protected
-	-	
+	-make an xml file that will hold the daily sql info. it should only replace its contents once a day at midnight 	
 	
 */
 ?>
@@ -56,7 +56,7 @@ ToDo:
     </div>
   </div>
 </nav>
-<!-- Take Quiz-->
+<!-- Take Quiz
 <form class="form-inline" role="form" action="pages/takeQuiz.php" method="POST">
   <button type="submit" class="btn btn-default" name="takeQuiz">Take Quiz</button>
 </form>
@@ -65,11 +65,12 @@ ToDo:
  <form class="form-inline" role="form" action="pages/insertNew.php" method="POST">
   <button type="submit" class="btn btn-default" name="insertNew">Insert Question</button>
 </form>
-
+-->
 <br>
 
 </body>
 
 </html>
+
 
 
