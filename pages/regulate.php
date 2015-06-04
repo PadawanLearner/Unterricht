@@ -1,4 +1,60 @@
 <?php 
+
+
+function queryDaily(){	
+	
+	if($_SERVER['HTTP_HOST'] == "localhost"){
+		require('../../utility/dbConnect.php');
+	}
+	else{
+		require('../../../phpFunctions/dbConnect.php');
+	}
+	//PDO mysqli insert question, each question has the question itself, the answer, and the category
+	$query= file_get_contents("../sql/getDaily.sql");
+	$stmt = mysqli_prepare( $conn, $query);		
+	mysqli_stmt_execute($stmt);
+
+	//Verify failure or success
+	if(!$stmt){
+	 echo("Error description: " . mysqli_error($conn));
+	}
+	else{
+	 echo "Query Success";
+	}
+
+	mysqli_stmt_bind_result($stmt, $question, $answer);
+	
+	$questions = array();
+	$answers = array();
+	$ctr=0;
+	while (mysqli_stmt_fetch($stmt)) {		
+		array_push($questions,$question);
+		array_push($answers,$answer);
+	}
+	
+	//Store quiz into SESSION 
+	 $_SESSION["questions"] = $questions;
+	 $_SESSION["answers"] = $answers;
+	 $_SESSION["ctr"] = 0;
+
+}		 
+	//Close connections
+	mysqli_stmt_close($stmt);
+	mysqli_close($conn);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
 	session_start();
  
 	if ((isset($_POST['question'])) &&(isset($_POST['answer']))){
@@ -51,7 +107,6 @@
 		
 			mysqli_stmt_execute($stmt);
 
-		
 			mysqli_stmt_bind_result($stmt, $question, $answer);
 
 			
@@ -79,4 +134,6 @@
 	else{
 		echo "go to homepage";
 	}
+*/
+
 ?>
