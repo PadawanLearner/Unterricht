@@ -30,10 +30,7 @@ ToDo:
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Bootstrap -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<!-- Optional theme -->
+	<!-- Bootstrap --> <!-- Latest compiled and minified CSS --> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> <!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -41,28 +38,50 @@ ToDo:
 
 <body>
 
-
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-inverse">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Unterricht</a>
+      <a class="navbar-brand" href="index.php">Unterricht</a>
+    </div>
     <div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-       <li><a href="pages/insertNew.php">Insert Question</a></li>
+      <ul class="nav navbar-nav navbar">
+        <li class="active"><a href="index.php">Home</a></li>
+       <li><a href="pages/insertNew.php">Insert Content</a></li>
         <li><a href="pages/takeQuiz.php">See the Daily!</a></li>
       </ul>
     </div>
-  </div>
 </nav>
-<!-- Take Quiz
-<form class="form-inline" role="form" action="pages/takeQuiz.php" method="POST">
-  <button type="submit" class="btn btn-default" name="takeQuiz">Take Quiz</button>
+
+
+<div class="container">
+	<div class="text-center"><h2>What is Unterricht?</h2></div>
+	<div class="row">
+		<div class="text-center"><p>Unterricht is a learning tool that covers an extremely brief lesson each day, known as "the Daily"</p></div>
+		<div class="col-xs-12">
+		<ul class="list-group">
+		<li class="list-group-item list-group-item-success">Unterricht is easy and casual</li>
+		<li class="list-group-item list-group-item-success">Unterricht is meant to be used briefly each day</li>
+		<li class="list-group-item list-group-item-danger">Unterricht is not meant to be used for short-term studying or cramming</li>
+		<li class="list-group-item list-group-item-info">Is a German <a href="en.wiktionary.org/wiki/Unterricht">word</a>.</li>
+
+		</ul>
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+ <!-- Take Quiz <form class="form-inline" role="form" action="pages/takeQuiz.php" method="POST"> <button type="submit" class="btn btn-default" name="takeQuiz">Take Quiz</button>
 </form>
 
-<!-- Insert New Question-->
+ Insert New Question
  <form class="form-inline" role="form" action="pages/insertNew.php" method="POST">
   <button type="submit" class="btn btn-default" name="insertNew">Insert Question</button>
 </form>
@@ -71,7 +90,5 @@ ToDo:
 
 </body>
 
-</html>
-
-
+</html> 
 
