@@ -15,7 +15,7 @@ Each "daily" will have:
 ToDo:
 	-make insertQuestion password protected
 	-make an xml file that will hold the daily sql info. it should only replace its contents once a day at midnight 	
-	
+	-allow non-admin users to request and apply that a one-liner be reviewed to be put into the database and become a candidate for the Daily. Let the admin get an email when this happens	
 */
 ?>
 
@@ -34,34 +34,47 @@ ToDo:
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<!-- Theme -->
+	<link rel="stylesheet" type="text/css" href="mainTheme.css">
 </head>
+
 
 <body>
 
+
+
+
+
+<br>
+<br>
 <nav class="navbar navbar-inverse">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Unterricht</a>
     </div>
     <div>
-      <ul class="nav navbar-nav navbar">
-        <li class="active"><a href="index.php">Home</a></li>
-       <li><a href="pages/insertNew.php">Insert Content</a></li>
+      <ul class="nav navbar-nav">
         <li><a href="pages/takeQuiz.php">See the Daily!</a></li>
       </ul>
+       <ul class="nav navbar-nav navbar-right">
+	<li><a href="pages/insertNew.php">Insert Content</a></li>
+	</ul>
     </div>
 </nav>
 
 
-<div class="container">
-	<div class="text-center"><h2>What is Unterricht?</h2></div>
+<div class="container"> <div class="text-center"><h2>What is Unterricht?</h2></div>
 	<div class="row">
 		<div class="text-center"><p>Unterricht is a learning tool that covers an extremely brief lesson each day, known as "the Daily"</p></div>
 		<div class="col-xs-12">
 		<ul class="list-group">
 		<li class="list-group-item list-group-item-success">Unterricht is easy and casual</li>
 		<li class="list-group-item list-group-item-success">Unterricht is meant to be used briefly each day</li>
-		<li class="list-group-item list-group-item-danger">Unterricht is not meant to be used for short-term studying or cramming</li>
-		<li class="list-group-item list-group-item-info">Is a German <a href="en.wiktionary.org/wiki/Unterricht">word</a>.</li>
+		<li class="list-group-item list-group-item-danger">Unterricht is not meant to be used for cramming</li>
+		<li class="list-group-item list-group-item-info">Is an epic sounding German <a href="http://en.wiktionary.org/wiki/Unterricht">word</a>.
+<iframe src="http://commons.wikimedia.org/wiki/File%3ADe-Unterricht.ogg?embedplayer=yes" width="50" height="25" frameborder="10" ></iframe>
+</li>
+		<li class="list-group-item list-group-item-info">The Daily has an acute focus on handy one-liners, e.g. Vim hotkeys, Linux commands, etc</li>
+
 
 		</ul>
 		</div>
