@@ -47,7 +47,7 @@ ToDo:
 
 <br>
 <br>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Unterricht</a>
     </div>
@@ -71,7 +71,7 @@ ToDo:
 		<li class="list-group-item list-group-item-success">Unterricht is meant to be used briefly each day</li>
 		<li class="list-group-item list-group-item-danger">Unterricht is not meant to be used for cramming</li>
 		<li class="list-group-item list-group-item-info">Is an epic sounding German <a href="http://en.wiktionary.org/wiki/Unterricht">word</a>.
-<iframe src="http://commons.wikimedia.org/wiki/File%3ADe-Unterricht.ogg?embedplayer=yes" width="50" height="25" frameborder="10" ></iframe>
+<iframe src="http://commons.wikimedia.org/wiki/File%3ADe-Unterricht.ogg?embedplayer=yes" width="45" height="20" frameborder="5" ></iframe>
 </li>
 		<li class="list-group-item list-group-item-info">The Daily has an acute focus on handy one-liners, e.g. Vim hotkeys, Linux commands, etc</li>
 
