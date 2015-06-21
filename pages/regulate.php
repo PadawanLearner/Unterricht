@@ -1,7 +1,7 @@
 <?php 
 
 
-function queryDaily(){	
+function getDaily(){	
 	
 	if($_SERVER['HTTP_HOST'] == "localhost"){
 		require('../../utility/dbConnect.php');
@@ -19,31 +19,33 @@ function queryDaily(){
 	 echo("Error description: " . mysqli_error($conn));
 	}
 	else{
-	 echo "Query Success";
+	// echo "Query Success";
 	}
 
-	mysqli_stmt_bind_result($stmt, $question, $answer);
+	mysqli_stmt_bind_result($stmt, $question, $answer,$category);
 	
 	$questions = array();
 	$answers = array();
+	$categories = array();
 	$ctr=0;
 	while (mysqli_stmt_fetch($stmt)) {		
 		array_push($questions,$question);
 		array_push($answers,$answer);
+		array_push($categories, $category);
 	}
 	
 	//Store quiz into SESSION 
 	 $_SESSION["questions"] = $questions;
 	 $_SESSION["answers"] = $answers;
+	 $_SESSION["categories"] = $categories;
 	 $_SESSION["ctr"] = 0;
 
-}		 
 	//Close connections
 	mysqli_stmt_close($stmt);
 	mysqli_close($conn);
 
+}		 
 
-}
 
 
 

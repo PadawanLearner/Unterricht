@@ -47,13 +47,13 @@ ToDo:
 
 <br>
 <br>
-<nav class="navbar navbar">
+<nav class="navbar navbar-inverse">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Unterricht</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="pages/takeQuiz.php">See the Daily!</a></li>
+        <li><a href="pages/theDaily.php">See the Daily!</a></li>
       </ul>
        <ul class="nav navbar-nav navbar-right">
 	<li><a href="pages/insertNew.php">Insert Content</a></li>
@@ -62,18 +62,20 @@ ToDo:
 </nav>
 
 
-<div class="container"> <div class="text-center"><h2>What is Unterricht?</h2></div>
+<div class="container"> <div class="text-center"><h1>What is Unterricht?</h1></div>
+<br>
+<br>
 	<div class="row">
 		<div class="text-center"><p>Unterricht is a learning tool that covers an extremely brief lesson each day, known as "the Daily"</p></div>
 		<div class="col-xs-12">
 		<ul class="list-group">
-		<li class="list-group-item list-group-item-success">Unterricht is easy and casual</li>
-		<li class="list-group-item list-group-item-success">Unterricht is meant to be used briefly each day</li>
-		<li class="list-group-item list-group-item-danger">Unterricht is not meant to be used for cramming</li>
-		<li class="list-group-item list-group-item-info">Is an epic sounding German <a href="http://en.wiktionary.org/wiki/Unterricht">word</a>.
+		<li class="list-group-item"><div class="text-center"><p>Unterricht is easy and casual</p></div></li>
+		<li class="list-group-item"><div class="text-center"><p>Unterricht is meant to be used briefly each day</p></div></li>
+		<li class="list-group-item"><div class="text-center"><p>Unterricht is not meant to be used for cramming</p></div></li>
+		<li class="list-group-item"><div class="text-center"><p>Is an epic sounding German <a href="http://en.wiktionary.org/wiki/Unterricht">word</a>
 <iframe src="http://commons.wikimedia.org/wiki/File%3ADe-Unterricht.ogg?embedplayer=yes" width="45" height="20" frameborder="5" ></iframe>
 </li>
-		<li class="list-group-item list-group-item-info">The Daily has an acute focus on handy one-liners, e.g. Vim hotkeys, Linux commands, etc</li>
+		<li class="list-group-item"><div class="text-center"><p>The Daily has an acute focus on handy one-liners, e.g. Vim hotkeys, Linux commands, etc</p></div></li>
 
 
 		</ul>
