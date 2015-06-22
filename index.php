@@ -9,11 +9,19 @@ Each "daily" will have:
 	-a Vim command
 	-a definition of a word you want to incorporate into your language.
 	-a tricky syntax of the day line
+	-a paragraph or phrase from rethinking your wetware
 	-*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
 	-*future*: includes a daily picture of a concept that is illustrated completely as visual. Example: http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg
 
 ToDo:
+	-put navbars on each page	
+	-store yesterdays daily into xml
+	-import a huge csv file full of shortcuts into you sql db(use your linux book as well)
+	-rethink your db design
+	-make insert content page
+	-revisit UI once functionality is done
 	-make insertQuestion password protected
+	-look into best practices (specifically folder structures) for a portable app. example: readme files, install files, etc
 	-make an xml file that will hold the daily sql info. it should only replace its contents once a day at midnight 	
 	-allow non-admin users to request and apply that a one-liner be reviewed to be put into the database and become a candidate for the Daily. Let the admin get an email when this happens	
 */
@@ -70,7 +78,7 @@ ToDo:
 		<div class="col-xs-12">
 		<ul class="list-group">
 		<li class="list-group-item"><div class="text-center"><p>Unterricht is easy and casual</p></div></li>
-		<li class="list-group-item"><div class="text-center"><p>Unterricht is meant to be used briefly each day</p></div></li>
+		<li class="list-group-item"><div class="text-center"><p>Unterricht is meant to be used briefly each day (&lt;10 min)</p></div></li>
 		<li class="list-group-item"><div class="text-center"><p>Unterricht is not meant to be used for cramming</p></div></li>
 		<li class="list-group-item"><div class="text-center"><p>Is an epic sounding German <a href="http://en.wiktionary.org/wiki/Unterricht">word</a>
 <iframe src="http://commons.wikimedia.org/wiki/File%3ADe-Unterricht.ogg?embedplayer=yes" width="45" height="20" frameborder="5" ></iframe>
