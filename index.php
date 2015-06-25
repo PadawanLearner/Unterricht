@@ -18,6 +18,7 @@ ToDo:
 	-store yesterdays daily into xml
 	-import a huge csv file full of shortcuts into you sql db(use your linux book as well)
 	-rethink your db design
+	-make content in database time sensitive.  newly added items will have more of a probability of being chosen as opposed to older items.  Also implemented a "learned" tag that operates on a three strikes rule, at which point the item will be "learned" and have a drastically lower probability of being chosen
 	-make insert content page
 	-revisit UI once functionality is done
 	-make insertQuestion password protected
