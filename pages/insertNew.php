@@ -23,7 +23,7 @@ session_start();
 function myAjax(){
 
 xmlhttp=new XMLHttpRequest(); //make ajax object
-var params = "question="+document.getElementById("question").value;
+var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+document.getElementById("category").value;
 xmlhttp.open("POST","insert.php",true);
 
 //Send the proper header information along with the request
@@ -45,7 +45,7 @@ xmlhttp.send(params);
 
 function reset(){
 xmlhttp=new XMLHttpRequest(); //make ajax object
-var params = "function=reset"
+var params = "action=reset"
 xmlhttp.open("POST","insert.php",true);
 
 //Send the proper header information along with the request
