@@ -20,7 +20,7 @@ session_start();
 
 
 //This function updates the serverside info for the query
-function myAjax(){
+function addQuestion(){
 
 xmlhttp=new XMLHttpRequest(); //make ajax object
 var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+document.getElementById("category").value;
@@ -51,18 +51,29 @@ xmlhttp.open("POST","insert.php",true);
 //Send the proper header information along with the request
 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xmlhttp.setRequestHeader("Content-length", params.length);
-xmlhttp.setRequestHeader("Connection", "close");
-
-
 xmlhttp.onreadystatechange=function(){
 if (xmlhttp.readyState==4 && xmlhttp.status==200){  //the callback that will receive the response   
 	alert(xmlhttp.responseText);
     }
 }
-
 xmlhttp.send(params);
+}
 
 
+function insertQuestion(){
+xmlhttp=new XMLHttpRequest(); //make ajax object
+var params = "action=insert"
+xmlhttp.open("POST","insert.php",true);
+
+//Send the proper header information along with the request
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.setRequestHeader("Content-length", params.length);
+xmlhttp.onreadystatechange=function(){
+if (xmlhttp.readyState==4 && xmlhttp.status==200){  //the callback that will receive the response   
+	alert(xmlhttp.responseText);
+    }
+}
+xmlhttp.send(params);
 }
 
 
@@ -104,7 +115,8 @@ document.getElementById("myList").appendChild(node);
 	<button type="submit" name="addAnother">Add Another </button>
 </form>
 
-	<button onclick="myAjax()" name="addAnother2">Add Another2 </button>
+	<button onclick="insertQuestion()" name="insertQuestions">Insert questions </button>
+	<button onclick="addQuestion()" name="addAnother2">Add Another2 </button>
 	<button onclick="reset()" name="reset">Reset All</button>
 </body>
 </html>
