@@ -90,6 +90,20 @@ document.getElementById("myList").appendChild(node);
 </head>
 
 <body>
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.php">Unterricht</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="theDaily.php">See the Daily!</a></li>
+      </ul>
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="insertNew.php">Insert Content</a></li>
+        </ul>
+    </div>
+</nav>
+
 <ul id="myList">
 </ul>
 <!-- Insert Question -->
