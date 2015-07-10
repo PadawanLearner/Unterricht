@@ -21,4 +21,13 @@ WHERE category = "Syntax"
 ORDER BY RAND()
 LIMIT 1
 )
+UNION
+(
+SELECT question,answer,category
+FROM questions
+WHERE category = "Vocabulary"
+ORDER BY RAND()
+LIMIT 1
+)
+
 

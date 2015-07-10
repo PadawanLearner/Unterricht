@@ -53,6 +53,10 @@ if ($_POST['action'] == 'insert'){
 	}
 
 	}
+	unset($_SESSION['insertQuestions']);
+	unset($_SESSION['insertAnswers']);
+	unset($_SESSION['insertCategories']);
+
 	//Close connections
 	mysqli_stmt_close($stmt);
 	mysqli_close($conn);
@@ -60,7 +64,7 @@ if ($_POST['action'] == 'insert'){
 
 
 //for debugging:
-print_r ($_SESSION['insertQuestions']);	
-print_r ($_SESSION['insertAnswers']);	
-print_r ($_SESSION['insertCategories']);	
+//print_r ($_SESSION['insertQuestions']);	
+//print_r ($_SESSION['insertAnswers']);	
+//print_r ($_SESSION['insertCategories']);	
 ?>
