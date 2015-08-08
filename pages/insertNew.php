@@ -17,13 +17,35 @@ session_start();
 
 
 <script type="text/javascript">
+/*
+   This function returns the value of the currently selected radio button
+ */
+function getCheckedRadio(radioGroup) {
+	for (var i = 0; i < radioGroup.length; i++) {
+		var button = radioGroup[i];
+		if (button.checked) {
+			return button;
+		}
+	}
+	return undefined;
+}
 
 
-//This function updates the serverside info for the query
+/*
+   /This function updates the serverside info for the query
+
+ */
 function addQuestion(){
+	var checkedButton = getCheckedRadio(document.getElementsByName("category"));
+	if (!checkedButton) {
+		alert("Invalid category");
+	}
+
+
+
 
 	xmlhttp=new XMLHttpRequest(); //make ajax object
-	var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+document.getElementById("category").value;
+	var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+checkedButton.value;
 	xmlhttp.open("POST","insert.php",true);
 
 	//Send the proper header information along with the request
@@ -42,7 +64,9 @@ function addQuestion(){
 
 }
 
-
+/*
+   Reset all the data from the questions the user has planned to enter into the database
+ */
 function reset(){
 	xmlhttp=new XMLHttpRequest(); //make ajax object
 	var params = "action=reset"
@@ -59,7 +83,9 @@ function reset(){
 	xmlhttp.send(params);
 }
 
-
+/*
+   Put in motion the insertion of the question(s) on the server
+ */
 function insertQuestion(){
 	xmlhttp=new XMLHttpRequest(); //make ajax object
 	var params = "action=insert"
@@ -107,7 +133,7 @@ function extendQuery(){
 <ul id="myList">
 </ul>
 <!-- Insert Question -->
-<form  action="extendQuery()" >
+<form id="content"  action="extendQuery()" >
 <div class="row">
 <div class="col-xs-6">	 
 <label for="answer">What is the tip or shortcut?</label>
@@ -125,9 +151,10 @@ function extendQuery(){
 <!-- Need checkboxes for category plus a section for "new" category-->
 <label for="questionCategory">What program or platform is this tip or shortcut for?</label>
 <?php
-
+require "regulate.php";
+displayCategories();
 ?>
-<input type="text" class="form-control" name="category" id="category">
+<!-- <input type="text" class="form-control" name="category" id="category"> -->
 <br>
 <!-- <button type="submit" name="addAnother">Add Another </button>-->
 </form>

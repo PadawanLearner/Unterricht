@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "regulate.php";
 
 if (!isset($_SESSION['insertQuestions'])){
 	$_SESSION['insertQuestions'] = array();
@@ -20,37 +21,33 @@ if ($_POST['action'] == 'add'){
 	array_push($_SESSION['insertCategories'], $_POST['category']);
 }
 else{}
-	
+
 
 
 if ($_POST['action'] == 'insert'){
-	
+
 	if ( sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertAnswers'])
-	||sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertCategories']))
+			||sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertCategories']))
 		echo "Error-Please press the reset button and try again"; 
 
+	connectTOSQL();
 
-	if($_SERVER['HTTP_HOST'] == "localhost"){
-		require('../../utility/dbConnect.php');
-	}
-	else{
-		require('../../../phpFunctions/dbConnect.php');
-	}
-
+	echo sizeof($_SESSION['insertQuestions']);
 	for ($i=0;$i<sizeof($_SESSION['insertQuestions']);$i++){
 		$query= 'INSERT into questions (question, answer, category) values (?,?,?)';
-	
-	//PDO mysqli insert question, each question has the question itself, the answer, and the category
-	$stmt = mysqli_prepare( $conn, $query);         
-	mysqli_stmt_bind_param($stmt, "sss", $_SESSION['insertQuestions'][$i], $_SESSION['insertAnswers'][$i], $_SESSION['insertCategories'][$i]);
-	mysqli_stmt_execute($stmt);
-	//Verify failure or success
-	if(!$stmt){
-	 echo("Error description: " . mysqli_error($conn));
-	}
-	else{
-	 echo "Question inserted. Add button to return to home page";
-	}
+
+		//PDO mysqli insert question, each question has the question itself, the answer, and the category
+		$insertQuestionsStmt = mysqli_prepare( $GLOBALS['conn'], $query);         
+
+		mysqli_stmt_bind_param($insertQuestionsStmt, "sss", $_SESSION['insertQuestions'][$i], $_SESSION['insertAnswers'][$i], $_SESSION['insertCategories'][$i]);
+		mysqli_stmt_execute($insertQuestionsStmt);
+		//Verify failure or success
+		if(!$insertQuestionsStmt){
+			echo("Error description: " . mysqli_error($GLOBALS['conn']));
+		}
+		else{
+			echo "Question inserted. Add button to return to home page";
+		}
 
 	}
 	unset($_SESSION['insertQuestions']);
@@ -58,8 +55,8 @@ if ($_POST['action'] == 'insert'){
 	unset($_SESSION['insertCategories']);
 
 	//Close connections
-	mysqli_stmt_close($stmt);
-	mysqli_close($conn);
+
+	mysqli_close($GLOBALS['conn']);
 }
 
 
