@@ -124,6 +124,9 @@ function extendQuery(){
 <br>
 <!-- Need checkboxes for category plus a section for "new" category-->
 <label for="questionCategory">What program or platform is this tip or shortcut for?</label>
+<?php
+
+?>
 <input type="text" class="form-control" name="category" id="category">
 <br>
 <!-- <button type="submit" name="addAnother">Add Another </button>-->

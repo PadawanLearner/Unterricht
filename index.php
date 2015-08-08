@@ -11,6 +11,7 @@
    -a definition of a word you want to incorporate into your language.
    -a tricky syntax of the day line
    -a paragraph or phrase from rethinking your wetware
+-make a "Weekly" which is a quiz that quizes the user on the last 7 days "dailies"
    -*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
    -*future*: includes a daily picture of a concept that is illustrated completely as visual. Example: http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg
 
@@ -18,6 +19,7 @@ ToDo:
 -store yesterdays daily into xml
 -make timer for each daily
 -make a running total for implemented features(ie completed tasks on this toDo list) on the home page
+-make category field in insertNew.php only allow radio buttons for more control
 -insert more content for Linux (use book) and find other categories like github.  When you add a category, make sure you update your sql statement
 -import a huge csv file full of shortcuts into you sql db(use your linux book as well)
 -rethink your db design
