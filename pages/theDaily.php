@@ -13,6 +13,7 @@ getDaily();
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <!-- Print the Question -->
 </head>
@@ -32,16 +33,23 @@ getDaily();
 </div>
 </nav>
 
-<!-- Select Quiz Parameters -->
+<!--Display the daily -->
 <?php
 for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
-	echo "<br>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: ".$_SESSION['answers'][$_SESSION['ctr']];
+	echo "<br>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: ";
 	echo "<br>Description: ". $_SESSION['questions'][$_SESSION['ctr']];
-	$_SESSION['ctr']++;
+	echo '<br><button type="button" class="btn btn-success" data-toggle="displayAnswer" title="% correct" data-content="'.$_SESSION['answers'][$_SESSION['ctr']].'">Answer</button>';
 	echo "<br><br><br>";
+	$_SESSION['ctr']++;
 }
 ?>
+<br>
 
+<script>
+$(document).ready(function(){
+		$('[data-toggle="displayAnswer"]').popover();   
+		});
+</script>
 
 </body>
 </html>

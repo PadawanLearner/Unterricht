@@ -150,6 +150,7 @@ function extendQuery(){
 <br>
 <!-- Need checkboxes for category plus a section for "new" category-->
 <label for="questionCategory">What program or platform is this tip or shortcut for?</label>
+<br>
 <?php
 require "regulate.php";
 displayCategories();
