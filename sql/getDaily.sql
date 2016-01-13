@@ -1,7 +1,9 @@
 (
 SELECT question,answer,category
 FROM questions
-WHERE category = "Vim"
+LEFT JOIN dailies
+ON questions.questionId = dailies.questionId
+WHERE category = "Vim" AND dailies.questionId IS NULL
 ORDER BY RAND()
 LIMIT 1
 )
@@ -9,7 +11,9 @@ UNION
 (
 SELECT question,answer,category
 FROM questions
-WHERE category = "Linux"
+LEFT JOIN dailies
+ON questions.questionId = dailies.questionId
+WHERE category = "Linux" AND dailies.questionId IS NULL
 ORDER BY RAND()
 LIMIT 1
 )
@@ -17,7 +21,9 @@ UNION
 (
 SELECT question,answer,category
 FROM questions
-WHERE category = "Syntax"
+LEFT JOIN dailies
+ON questions.questionId = dailies.questionId
+WHERE category = "Syntax" AND dailies.questionId IS NULL
 ORDER BY RAND()
 LIMIT 1
 )
@@ -25,9 +31,10 @@ UNION
 (
 SELECT question,answer,category
 FROM questions
-WHERE category = "Vocabulary"
+LEFT JOIN dailies
+ON questions.questionId = dailies.questionId
+WHERE category = "Vocabulary" AND dailies.questionId IS NULL
 ORDER BY RAND()
 LIMIT 1
 )
-
 
