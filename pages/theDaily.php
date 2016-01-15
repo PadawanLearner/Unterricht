@@ -36,6 +36,7 @@ getDaily();
 
 <!--display the daily -->
 <?php
+/*
 for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 	echo "<br>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: ";
 	echo "<br>description: ". $_SESSION['questions'][$_SESSION['ctr']];
@@ -43,6 +44,7 @@ for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 	echo "<br><br><br>";
 	$_SESSION['ctr']++;
 }
+*/
 ?>
 <br>
 <div class="carouselWrapper">  
@@ -51,7 +53,15 @@ for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 
 <div class="active item">
 <p>Sunday</p>
-<p>Questions here</p>
+<?php
+for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
+	echo "<br><p>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: </p>";
+	echo "<br><p>description: ". $_SESSION['questions'][$_SESSION['ctr']]."</p>";
+	echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" title="% correct" data-content="'.$_SESSION['answers'][$_SESSION['ctr']].'">answer</button></p>';
+	echo "<br><br><br>";
+	$_SESSION['ctr']++;
+}
+?>
 </div>
 
 <div class="item">
