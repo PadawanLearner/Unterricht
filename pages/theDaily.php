@@ -15,7 +15,7 @@ getDaily();
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="maintheme.css">
+<link rel="stylesheet" type="text/css" href="mainTheme.css">
 </head>
 
 
@@ -29,7 +29,7 @@ getDaily();
 <li><a href="thedaily.php">see the daily!</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-<li><a href="insertnew.php">insert content</a></li>
+<li><a href="insertNew.php">insert content</a></li>
 </ul>
 </div>
 </nav>
@@ -52,7 +52,6 @@ for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 <div class="active item">
 <p>Sunday</p>
 <p>Questions here</p>
-<!-- <img src="http://lorempixel.com/1024/750" alt="Slide1" />-->
 </div>
 
 <div class="item">
@@ -86,13 +85,20 @@ for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 </div>
 
 </div>
-<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>
 </div>
+ <!-- left and right controls -->
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">next</span>
+</a>
+<!-- 
 <div class="container">
 <div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-<!-- indicators -->
 <ol class="carousel-indicators">
 <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
 <li data-target="#mycarousel" data-slide-to="1"></li>
@@ -100,7 +106,6 @@ for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 <li data-target="#mycarousel" data-slide-to="3"></li>
 </ol>
 
-<!-- wrapper for slides -->
 <div class="carousel-inner" role="listbox">
 <br>
 <br>
@@ -172,19 +177,11 @@ for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 </div>
 </div>
 
-<!-- left and right controls -->
-<a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
-<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-<span class="sr-only">previous</span>
-</a>
-<a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
-<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-<span class="sr-only">next</span>
-</a>
 </div>
 </div>
 
 
+-->
 
 
 

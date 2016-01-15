@@ -3,6 +3,7 @@
 
 /*
 
+test
    This app seeks a new design.  Instead of a quiz-like interaction, this app will provide handy shortcuts and info that will change everyday at midnight.
    Each "daily" will have:
    -a Linux command review &|| question

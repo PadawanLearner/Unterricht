@@ -1,5 +1,5 @@
 p{
-	font-size:120%; 
+	font-size:110%; 
 	/*color:#6E93B8;*/
 	/*box-shadow: 10px 10px 5px grey;*/
 	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -11,48 +11,17 @@ h1{
 	/*color:#6E93B8;*/
 
 }
-/*
-html,body{height:100%;}
-.carousel,.item,.active{height:100%;}
-.carousel-inner{height:100%;}
 .carousel-caption {
-	color: black;
-max-width: 550px;
-padding: 0 20px;
-margin:0 auto;
-       margin-top: 200px;
-       text-align:center;
-       /*
-right: 0%;
-left: auto;
-top: auto;
-	*/
+color: black;
+}
 .carouselWrapper {
 
 
-background-color: yellow;
-color:#6E93B8;
+color: black;
 }
 .carouselWrapper p {
-  width: auto;
-  height: auto;
-  /*max-height: 225px;
-}
-.carousel .item {
-    width: 100%; /*slider width*/
-    /*max-height: 600px; /*slider height*/
-}
-
-.carousel .item img {
-    width: 100%; /*img width*/
-}
-/*full width container*/
-@media (max-width: 767px) {
-    .block {
-
-    height: 90%;
-        margin-left: -20px;
-        margin-right: -20px;
-    }
-}
-
+text-align:center;
+width: auto;
+height: auto;
+	/*max-height: 225px;
+	  }
