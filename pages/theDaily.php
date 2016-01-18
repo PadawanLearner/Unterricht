@@ -20,21 +20,15 @@ getDaily();
 
 
 <body>
-<nav class="navbar navbar-inverse">
-<div class="navbar-header">
-<a class="navbar-brand" href="../index.php">unterricht</a>
-</div>
-<div>
-<ul class="nav navbar-nav">
-<li><a href="thedaily.php">see the daily!</a></li>
-</ul>
-<ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-collapse collapse">
+<ul class="nav nav-justified">
+<li><a href="../index.php">what is this?</a></li>
+<li><a href="theDaily.php">see the daily!</a></li>
 <li><a href="insertNew.php">insert content</a></li>
 </ul>
 </div>
 </nav>
-
-<!--display the daily -->
 <?php
 /*
    for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
@@ -71,9 +65,9 @@ foreach ($days as $day){
 		$_SESSION['ctr']++;
 
 	}
-		$_SESSION['ctr']=0;
-		echo "<br>";
-		echo "</div>";
+	$_SESSION['ctr']=0;
+	echo "<br>";
+	echo "</div>";
 
 
 }

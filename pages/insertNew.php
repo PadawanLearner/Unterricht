@@ -116,20 +116,15 @@ function extendQuery(){
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
-<div class="navbar-header">
-<a class="navbar-brand" href="../index.php">Unterricht</a>
-</div>
-<div>
-<ul class="nav navbar-nav">
-<li><a href="theDaily.php">See the Daily!</a></li>
-</ul>
-<ul class="nav navbar-nav navbar-right">
-<li><a href="insertNew.php">Insert Content</a></li>
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-collapse collapse">
+<ul class="nav nav-justified">
+<li><a href="../index.php">what is this?</a></li>
+<li><a href="theDaily.php">see the daily!</a></li>
+<li><a href="insertNew.php">insert content</a></li>
 </ul>
 </div>
 </nav>
-
 <ul id="myList">
 </ul>
 <!-- Insert Question -->

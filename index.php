@@ -3,16 +3,16 @@
 
 /*
 
-test
-   This app seeks a new design.  Instead of a quiz-like interaction, this app will provide handy shortcuts and info that will change everyday at midnight.
    Each "daily" will have:
    -a Linux command review &|| question
    -a Vim command
+   -Windows batch command
+   -Windows shortcut
    -a github command
+-financial rule/advice/definition
    -a definition of a word you want to incorporate into your language.
    -a tricky syntax of the day line
    -a paragraph or phrase from rethinking your wetware
--make a "Weekly" which is a quiz that quizes the user on the last 7 days "dailies"
    -*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
    -*future*: includes a daily picture of a concept that is illustrated completely as visual. Example: http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg
 
@@ -66,25 +66,20 @@ BUGS:
 
 <body>
 
-
-
-
-
-<br>
-<br>
-<nav class="navbar navbar-inverse">
-<div class="navbar-header">
-<a class="navbar-brand" href="index.php">Unterricht</a>
-</div>
-<div>
-<ul class="nav navbar-nav">
-<li><a href="pages/theDaily.php">See the Daily!</a></li>
-</ul>
-<ul class="nav navbar-nav navbar-right">
-<li><a href="pages/insertNew.php">Insert Content</a></li>
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-collapse collapse">
+<ul class="nav nav-justified">
+<li><a href="index.php">what is this?</a></li>
+<li><a href="pages/theDaily.php">see the daily!</a></li>
+<li><a href="pages/insertNew.php">insert content</a></li>
 </ul>
 </div>
 </nav>
+
+
+
+<br>
+<br>
 
 
 <div class="container"> <div class="text-center"><h1>What is Unterricht?</h1></div>

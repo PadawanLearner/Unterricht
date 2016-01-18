@@ -1,4 +1,14 @@
+.navbar-collapse {
+  text-align:center;
+}
+.navbar-nav {
+    display:inline-block;
+    float:none;
+}
+
+
 p{
+
 	font-size:110%; 
 	/*color:#6E93B8;*/
 	/*box-shadow: 10px 10px 5px grey;*/
@@ -14,14 +24,17 @@ h1{
 .carousel-caption {
 color: black;
 }
-.carouselWrapper {
-
-
-color: black;
-}
 .carouselWrapper p {
 text-align:center;
 width: auto;
 height: auto;
-	/*max-height: 225px;
 	  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+  }
+

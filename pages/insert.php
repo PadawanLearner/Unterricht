@@ -61,7 +61,7 @@ if ($_POST['action'] == 'insert'){
 
 
 //for debugging:
-//print_r ($_SESSION['insertQuestions']);	
-//print_r ($_SESSION['insertAnswers']);	
-//print_r ($_SESSION['insertCategories']);	
+print_r ($_SESSION['insertQuestions']);	
+print_r ($_SESSION['insertAnswers']);	
+print_r ($_SESSION['insertCategories']);	
 ?>
