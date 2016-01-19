@@ -1,7 +1,8 @@
 <?php
+date_default_timezone_set("EST");
 session_start();
 require "regulate.php";
-getDaily();
+//getNewDaily();
 ?>
 
 <!DOCTYPE html>
@@ -29,17 +30,6 @@ getDaily();
 </ul>
 </div>
 </nav>
-<?php
-/*
-   for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
-   echo "<br>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: ";
-   echo "<br>description: ". $_SESSION['questions'][$_SESSION['ctr']];
-   echo '<br><button type="button" class="btn btn-success" data-toggle="displayAnswer" title="% correct" data-content="'.$_SESSION['answers'][$_SESSION['ctr']].'">answer</button>';
-   echo "<br><br><br>";
-   $_SESSION['ctr']++;
-   }
- */
-?>
 <br>
 <div class="carouselWrapper">  
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -53,10 +43,8 @@ foreach ($days as $day){
 	else{
 		echo "<div class='item'>";
 	}
-	echo 
-		"
-		<p>".$day."</p>
-		<p>Questions here</p>";
+	echo "<p><em>".$day."</em></p>";
+	getDaily($day);
 	for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
 		echo "<br><p>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: </p>";
 		echo "<br><p>description: ". $_SESSION['questions'][$_SESSION['ctr']]."</p>";
@@ -126,7 +114,7 @@ foreach ($days as $day){
 
 
 
-
+<?php echo Date("l");?>
 
 
 <script>
