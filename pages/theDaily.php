@@ -35,7 +35,7 @@ require "regulate.php";
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 <div class="carousel-inner">
 <?php
-$days = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
+$days = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
 foreach ($days as $day){
 	if (Date("l") == $day){
 		echo "<div class='active item'>";
