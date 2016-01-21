@@ -45,6 +45,7 @@ function getDaily($day){
 	connectToSQL();
 	//PDO mysqli insert question, each question has the question itself, the answer, and the category
 	//$query= file_get_contents("../sql/getDaily.sql");
+	//TO DO: make this into an sql file
 	$query = "SELECT question,answer,category 
 	FROM questions 
 	LEFT JOIN dailies 
@@ -86,12 +87,13 @@ function getDaily($day){
 	mysqli_stmt_close($stmt);
 	mysqli_close($GLOBALS['conn']);
 }
-function getNewDaily(){	
+function createNewDaily(){	
 	connectToSQL();
 	//PDO mysqli insert question, each question has the question itself, the answer, and the category
-	$query= file_get_contents("../sql/getNewDaily.sql");
-	$stmt = mysqli_prepare( $GLOBALS['conn'], $query);		
-	mysqli_stmt_execute($stmt);
+	$query= file_get_contents("../sql/createNewDaily.sql");
+	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
+	//TODO: make this a transaction so 2 users updating a daily cannot happen at the same time
+	//mysqli_stmt_execute($stmt);
 
 	//Verify failure or success
 	if(!$stmt){
@@ -100,27 +102,27 @@ function getNewDaily(){
 	else{
 		// echo "Query Success";
 	}
-
-	mysqli_stmt_bind_result($stmt, $question, $answer,$category);
-
-	$questions = array();
+/*
+	mysqli_stmt_bind_result($stmt, $questionId);
+	$questionIds = array();
 	$answers = array();
 	$categories = array();
 	$ctr=0;
 	while (mysqli_stmt_fetch($stmt)) {		
-		array_push($questions,$question);
-		array_push($answers,$answer);
-		array_push($categories, $category);
+		array_push($questionIds,$questionId);
+	//	array_push($answers,$answer);
+	//	array_push($categories, $category);
 	}
-
+	echo "<br>Ids: ".sizeof($questionIds);
+	/*
 	//Store quiz into SESSION 
 	$_SESSION["questions"] = $questions;
 	$_SESSION["answers"] = $answers;
 	$_SESSION["categories"] = $categories;
 	$_SESSION["ctr"] = 0;
-
+	*/
 	//Close connections
-	mysqli_stmt_close($stmt);
+	//mysqli_stmt_close($stmt);
 	mysqli_close($GLOBALS['conn']);
 
 }		 

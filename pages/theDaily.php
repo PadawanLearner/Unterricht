@@ -2,7 +2,7 @@
 date_default_timezone_set("EST");
 session_start();
 require "regulate.php";
-//getNewDaily();
+//createNewDaily();
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +114,8 @@ foreach ($days as $day){
 
 
 
-<?php echo Date("l");?>
+<?php echo Date("l");
+echo "<br>".Date("w");?>
 
 
 <script>
