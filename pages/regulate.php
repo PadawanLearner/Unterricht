@@ -102,6 +102,8 @@ function createNewDaily(){
 	else{
 		// echo "Query Success";
 	}
+	$query= file_get_contents("../sql/deleteOldDaily.sql");
+	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
 /*
 	mysqli_stmt_bind_result($stmt, $questionId);
 	$questionIds = array();

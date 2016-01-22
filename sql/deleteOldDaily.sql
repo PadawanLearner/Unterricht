@@ -1,0 +1,3 @@
+DELETE FROM dailies
+WHERE week != WEEK(CURDATE()) AND day=DAYNAME(CURDATE())
+
