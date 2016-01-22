@@ -2,7 +2,6 @@
 date_default_timezone_set("EST");
 session_start();
 require "regulate.php";
-//createNewDaily();
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +38,10 @@ $days = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satur
 foreach ($days as $day){
 	if (Date("l") == $day){
 		echo "<div class='active item'>";
+		if (isDailyOutdated($day)){
+			//		echo "<BR>Daily outdated status: ".isDailyOutdated($day);
+			createNewDaily();
+		}
 	}
 	else{
 		echo "<div class='item'>";
@@ -114,8 +117,9 @@ foreach ($days as $day){
 
 
 
-<?php echo Date("l");
-echo "<br>".Date("w");?>
+<?php
+// echo Date("l");
+//echo "<br>".Date("w");?>
 
 
 <script>
