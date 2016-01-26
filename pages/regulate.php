@@ -78,13 +78,37 @@ function getDaily($day){
 	//$query= file_get_contents("../sql/getDaily.sql");
 	//TO DO: make this into an sql file
 	//TO DO: make this into a log file that you can trace if something goes wrong
-	$query = "SELECT question,answer,category 
+	$query = "
+	(
+	SELECT question,answer,category 
+	FROM questions 
+	LEFT JOIN dailies 
+	ON questions.questionId = dailies.questionId 
+	WHERE category = 'Vim' AND dailies.day = '$day' 
+	ORDER BY RAND() 
+	LIMIT 1
+	)
+	UNION
+	(
+	SELECT question,answer,category 
+	FROM questions 
+	LEFT JOIN dailies 
+	ON questions.questionId = dailies.questionId 
+	WHERE category = 'Linux' AND dailies.day = '$day' 
+	ORDER BY RAND() 
+	LIMIT 1
+	)
+	UNION
+	(
+	SELECT question,answer,category 
 	FROM questions 
 	LEFT JOIN dailies 
 	ON questions.questionId = dailies.questionId 
 	WHERE category = 'Vocabulary' AND dailies.day = '$day' 
 	ORDER BY RAND() 
-	LIMIT 1";  
+	LIMIT 1
+	)
+	";  
 
 	$stmt = mysqli_prepare( $GLOBALS['conn'], $query);		
 	mysqli_stmt_execute($stmt);
