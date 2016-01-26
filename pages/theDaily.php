@@ -39,7 +39,6 @@ foreach ($days as $day){
 	if (Date("l") == $day){
 		echo "<div class='active item'>";
 		if (isDailyOutdated($day)){
-			//		echo "<BR>Daily outdated status: ".isDailyOutdated($day);
 			createNewDaily();
 		}
 	}
@@ -64,37 +63,6 @@ foreach ($days as $day){
 }
 
 ?>
-<!--
-<div class="item">
-<p>Monday</p>
-<p>Questions here</p>
-</div>
-
-<div class="item">
-<p>Tuesday</p>
-<p>Questions here</p>
-</div>
-
-<div class="item">
-<p>Wednesday</p>
-<p>Questions here</p>
-</div>
-
-<div class="item">
-<p>Thursday</p>
-<p>Questions here</p>
-</div>
-
-<div class="item">
-<p>Friday</p>
-<p>Questions here</p>
-</div>
-
-<div class="item">
-<p>Saturday</p>
-<p>Questions here</p>
-</div>
--->
 </div>
 </div>
 </div>
@@ -107,20 +75,6 @@ foreach ($days as $day){
 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 <span class="sr-only">next</span>
 </a>
-
-
-
-
-
-
-
-
-
-
-<?php
-// echo Date("l");
-echo "<br>".Date("W");?>
-
 
 <script>
 $(document).ready(function(){
