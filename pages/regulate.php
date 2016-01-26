@@ -62,13 +62,13 @@ function isDailyOutdated($day){
 	mysqli_stmt_bind_result($stmt, $week);
 	$outdated = false;
 	while (mysqli_stmt_fetch($stmt)) {		
-		echo "<BR>sql week: ".$week." php week reg: ".Date("w");
-		echo "<BR>sql week: ".$week." php week-1 : ".(Date("w")-1);
-		if ($week == (Date("w")-1))
+		echo "<BR>sql week: ".$week." php week reg: ".Date("W");
+		if ($week == (Date("W")))
 			$outdated = false;
 		else
 			$outdated = true;
 	}
+		echo "<BR> truth value: ".$outdated;
 	return $outdated;
 }
 function getDaily($day){
@@ -141,27 +141,6 @@ function createNewDaily(){
 	}
 	$query= file_get_contents("../sql/deleteOldDaily.sql");
 	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
-/*
-	mysqli_stmt_bind_result($stmt, $questionId);
-	$questionIds = array();
-	$answers = array();
-	$categories = array();
-	$ctr=0;
-	while (mysqli_stmt_fetch($stmt)) {		
-		array_push($questionIds,$questionId);
-	//	array_push($answers,$answer);
-	//	array_push($categories, $category);
-	}
-	echo "<br>Ids: ".sizeof($questionIds);
-	/*
-	//Store quiz into SESSION 
-	$_SESSION["questions"] = $questions;
-	$_SESSION["answers"] = $answers;
-	$_SESSION["categories"] = $categories;
-	$_SESSION["ctr"] = 0;
-	*/
-	//Close connections
-	//mysqli_stmt_close($stmt);
 	mysqli_close($GLOBALS['conn']);
 
 }		 

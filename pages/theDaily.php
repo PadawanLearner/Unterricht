@@ -119,7 +119,7 @@ foreach ($days as $day){
 
 <?php
 // echo Date("l");
-//echo "<br>".Date("w");?>
+echo "<br>".Date("W");?>
 
 
 <script>
