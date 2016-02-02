@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "regulate.php";
-
+/* 2/1/16 -- This functionality is disabled so that I may password protect content input
 if (!isset($_SESSION['insertQuestions'])){
 	$_SESSION['insertQuestions'] = array();
 	$_SESSION['insertAnswers'] = array();
@@ -64,4 +64,5 @@ if ($_POST['action'] == 'insert'){
 print_r ($_SESSION['insertQuestions']);	
 print_r ($_SESSION['insertAnswers']);	
 print_r ($_SESSION['insertCategories']);	
+*/
 ?>
