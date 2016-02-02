@@ -35,6 +35,7 @@ require "regulate.php";
 <div class="carousel-inner">
 <?php
 $days = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+connectToSQL();
 foreach ($days as $day){
 	if (Date("l") == $day){
 		echo "<div class='active item'>";
@@ -47,10 +48,10 @@ foreach ($days as $day){
 	}
 	echo "<p><em>".$day."</em></p>";
 	getDaily($day);
-	for ($i=0;$i<sizeof($_SESSION['questions']);$i++){
-		echo "<br><p>".$_SESSION['categories'][$_SESSION['ctr']]." tip of the day: </p>";
-		echo "<br><p>description: ". $_SESSION['questions'][$_SESSION['ctr']]."</p>";
-		echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" title="% correct" data-content="'.$_SESSION['answers'][$_SESSION['ctr']].'">answer</button></p>';
+	for ($i=0;$i<sizeof($_SESSION['dailies']);$i++){
+		echo "<br><p>".$_SESSION['dailies'][$_SESSION['ctr']][0]." tip of the day: </p>";
+		echo "<br><p>description: ". $_SESSION['dailies'][$_SESSION['ctr']][1]."</p>";
+		echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" title="% correct" data-content="'.$_SESSION['dailies'][$_SESSION['ctr']][2].'">answer</button></p>';
 		echo "<br><br><br>";
 		$_SESSION['ctr']++;
 
@@ -61,6 +62,7 @@ foreach ($days as $day){
 
 
 }
+closeSQLConnection();
 
 ?>
 </div>

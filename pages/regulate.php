@@ -43,7 +43,6 @@ function displayCategories(){
 }
 
 function isDailyOutdated($day){
-	connectToSQL();
 	$query = "SELECT week 
 	FROM dailies 
 	WHERE day = '$day' 
@@ -75,7 +74,6 @@ function isDailyOutdated($day){
 }
 function getDaily($day){
 
-	connectToSQL();
 	//PDO mysqli insert question, each question has the question itself, the answer, and the category
 	//$query= file_get_contents("../sql/getDaily.sql");
 	//TO DO: make this into an sql file
@@ -125,28 +123,28 @@ function getDaily($day){
 
 	mysqli_stmt_bind_result($stmt, $question, $answer,$category);
 
-	$questions = array();
-	$answers = array();
-	$categories = array();
+	$dailies = array();
 	$ctr=0;
 	while (mysqli_stmt_fetch($stmt)) {		
-		array_push($questions,$question);
-		array_push($answers,$answer);
-		array_push($categories, $category);
+		$dailies[$ctr][0]=$category;
+		$dailies[$ctr][1]=$question;
+		$dailies[$ctr][2]=$answer;
+		$ctr++;
 	}
-
 	//Store quiz into SESSION 
-	$_SESSION["questions"] = $questions;
-	$_SESSION["answers"] = $answers;
-	$_SESSION["categories"] = $categories;
+	$_SESSION["dailies"] = $dailies;
 	$_SESSION["ctr"] = 0;
 
 	//Close connections
-	mysqli_stmt_close($stmt);
+	//mysqli_stmt_close($stmt);
+	//mysqli_close($GLOBALS['conn']);
+}
+
+function closeSQLConnection(){
+
 	mysqli_close($GLOBALS['conn']);
 }
 function createNewDaily(){	
-	connectToSQL();
 	//PDO mysqli insert question, each question has the question itself, the answer, and the category
 	//TO DO: make a frontend comment stating that all dailies updated on EST time 
 	//TO DO: make this into a log file that you can trace if something goes wrong
@@ -167,7 +165,7 @@ function createNewDaily(){
 	}
 	$query= file_get_contents("../sql/deleteOldDaily.sql");
 	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
-	mysqli_close($GLOBALS['conn']);
+//	mysqli_close($GLOBALS['conn']);
 
 }		 
 
