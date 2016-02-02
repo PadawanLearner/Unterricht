@@ -2,10 +2,12 @@
 function connectToSQL(){
 	//The first connection is for localhost testing of the app	
 	if($_SERVER['HTTP_HOST'] == "localhost"){
+		ini_set('display_errors',1);
+		error_reporting(E_ALL);
 		require('../../utility/dbConnect.php');
 	}
 	else{
-		require('../../../phpFunctions/dbConnect.php');
+		require('../../phpFunctions/dbConnect.php');
 	}
 }
 
