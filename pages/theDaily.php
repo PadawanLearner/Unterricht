@@ -51,7 +51,7 @@ foreach ($days as $day){
 	for ($i=0;$i<sizeof($_SESSION['dailies']);$i++){
 		echo "<br><p>".$_SESSION['dailies'][$_SESSION['ctr']][0]." tip of the day: </p>";
 		echo "<br><p>description: ". $_SESSION['dailies'][$_SESSION['ctr']][1]."</p>";
-		echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" title="% correct" data-content="'.$_SESSION['dailies'][$_SESSION['ctr']][2].'">answer</button></p>';
+		echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" data-content="'.$_SESSION['dailies'][$_SESSION['ctr']][2].'">answer</button></p>';
 		echo "<br><br><br>";
 		$_SESSION['ctr']++;
 
