@@ -3,7 +3,7 @@ require "regulate.php";
 connectToSQL();
 $query = "SET time_zone = '-5:00'";
 $stmt = mysqli_query( $GLOBALS['conn'], $query);
-$query =file_get_contents("../sql/createNewDaily.php"); 
+$query =file_get_contents("../sql/createNewDaily.sql"); 
 $stmt = mysqli_query( $GLOBALS['conn'], $query);
 //TODO: make this a transaction so 2 users updating a daily cannot happen at the same time
 //mysqli_stmt_execute($stmt);
