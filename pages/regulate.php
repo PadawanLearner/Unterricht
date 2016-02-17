@@ -2,12 +2,14 @@
 function connectToSQL(){
 	//The first connection is for localhost testing of the app	
 	if($_SERVER['HTTP_HOST'] == "localhost"){
-		ini_set('display_errors',1);
+		ini_set('display_errors)',1);
 		error_reporting(E_ALL);
-		require('../../utility/dbConnect.php');
+		require ((dirname(dirname(dirname(__FILE__)))).'/utility/dbConnect.php');
+		//require(dirname(__FILE__).'../../utility/dbConnect.php');
 	}
 	else{
-		require('../../phpFunctions/dbConnect.php');
+		require((dirname(dirname(dirname(__FILE__)))).'/phpFunctions/dbConnect.php');
+		//require(dirname(__FILE__).'../../phpFunctions/dbConnect.php');
 	}
 }
 
@@ -86,7 +88,7 @@ function getDaily($day){
 	ON questions.questionId = dailies.questionId 
 	WHERE category = 'Vim' AND dailies.day = '$day' 
 	ORDER BY RAND() 
-	LIMIT 1
+	LIMIT 1 
 	)
 	UNION
 	(

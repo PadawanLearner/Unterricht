@@ -23,7 +23,6 @@ require "regulate.php";
 <nav class="navbar navbar-default" role="navigation">
 <div class="navbar-collapse collapse">
 <ul class="nav nav-justified">
-<li><a href="../index.php">what is this?</a></li>
 <li><a href="theDaily.php">see the daily!</a></li>
 <li><a href="insertNew.php">insert content</a></li>
 </ul>
@@ -39,9 +38,6 @@ connectToSQL();
 foreach ($days as $day){
 	if (Date("l") == $day){
 		echo "<div class='active item'>";
-		if (isDailyOutdated($day)){
-			createNewDaily();
-		}
 	}
 	else{
 		echo "<div class='item'>";
