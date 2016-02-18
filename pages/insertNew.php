@@ -157,5 +157,15 @@ displayCategories();
 <button onclick="addQuestion()" name="addAnother2">Click me to add another question</button><br>
 <button onclick="reset()" name="reset">I messed up.  Reset all the questions I was going to insert</button><br>
 <button onclick="insertQuestion()" name="insertQuestions">I'm done. Insert these questions into the database </button><br>
+<br>
+<br>
+<br>
+<form  action='insert.php' method='post' accept-charset='UTF-8'>
+<fieldset >
+<label for='password' >Password:</label>
+<input type='password' name='password' id='password' maxlength="50" />
+<input type='submit' name='Submit' value='Submit Questions' />
+</fieldset>
+</form>
 </body>
 </html>

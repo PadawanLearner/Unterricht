@@ -1,7 +1,33 @@
 <?php
 session_start();
 require "regulate.php";
-/* 2/1/16 -- This functionality is disabled so that I may password protect content input
+if (isset($_POST['password'])){
+	connectTOSQL();
+	$query = file_get_contents( "../sql/getAdminHash.sql");
+	$stmt = mysqli_prepare( $GLOBALS['conn'], $query);
+        mysqli_stmt_execute($stmt);
+
+        //Verify failure or success
+        if(!$stmt){
+                echo("Error description: " . mysqli_error($GLOBALS['conn']));
+        }
+        else{
+                // echo "Query Success";
+        }
+
+        mysqli_stmt_bind_result($stmt, $adminInfo);
+
+	$hashFromDb = "";
+        while (mysqli_stmt_fetch($stmt)) {
+		$hashFromDb = $adminInfo;
+        }
+	$isPassword = password_verify($_POST['password'],$hashFromDb);
+	var_dump($isPassword);//for debugging
+	closeSQLConnection();
+}
+else
+	echo "not set";
+/*
 if (!isset($_SESSION['insertQuestions'])){
 	$_SESSION['insertQuestions'] = array();
 	$_SESSION['insertAnswers'] = array();
@@ -22,17 +48,15 @@ if ($_POST['action'] == 'add'){
 }
 else{}
 
-
-
-if ($_POST['action'] == 'insert'){
-
+*/
+/*
+if ($_POST['action'] == 'insert' && (isset($_SESSION['insertPassword']))){
 	if ( sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertAnswers'])
 			||sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertCategories']))
 		echo "Error-Please press the reset button and try again"; 
-
 	connectTOSQL();
 
-	echo sizeof($_SESSION['insertQuestions']);
+	//	echo sizeof($_SESSION['insertQuestions']);
 	for ($i=0;$i<sizeof($_SESSION['insertQuestions']);$i++){
 		$query= 'INSERT into questions (question, answer, category) values (?,?,?)';
 
@@ -53,16 +77,17 @@ if ($_POST['action'] == 'insert'){
 	unset($_SESSION['insertQuestions']);
 	unset($_SESSION['insertAnswers']);
 	unset($_SESSION['insertCategories']);
-
 	//Close connections
-
 	mysqli_close($GLOBALS['conn']);
 }
+else {
+	echo "Password not set";
+}
 
+*/
 
 //for debugging:
-print_r ($_SESSION['insertQuestions']);	
-print_r ($_SESSION['insertAnswers']);	
-print_r ($_SESSION['insertCategories']);	
-*/
+//print_r ($_SESSION['insertQuestions']);	
+//print_r ($_SESSION['insertAnswers']);	
+//print_r ($_SESSION['insertCategories']);	
 ?>
