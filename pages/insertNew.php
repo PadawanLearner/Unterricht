@@ -13,9 +13,6 @@ session_start();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 
-
-
-
 <script type="text/javascript">
 /*
    This function returns the value of the currently selected radio button
@@ -30,19 +27,26 @@ function getCheckedRadio(radioGroup) {
 	return undefined;
 }
 
-
 /*
    /This function updates the serverside info for the query
 
  */
 function addQuestion(){
+	/*
+	You have to store the following elements into a variable, because if you just used getElementsByName as this script and the  DOM is loaded, then getElementsByName would fail to find the specified element. This is because those elements haven't been loaded yet (they are loaded below after this head script).  By using a variable, when addQuestion is called they have had enough time to be loaded, so the variable can in fact find them upon its initialization
+	*/
+	var questionText = document.getElementsByName("question");
+	if (!questionText[0].value)
+		alert ("No Question entered");
+
+	var answerText = document.getElementsByName("answer");
+	if (!answerText[0].value)
+		alert ("No Answer entered");
+
 	var checkedButton = getCheckedRadio(document.getElementsByName("category"));
 	if (!checkedButton) {
-		alert("Invalid category");
+		alert("No Category selected");
 	}
-
-
-
 
 	xmlhttp=new XMLHttpRequest(); //make ajax object
 	var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+checkedButton.value;
@@ -60,7 +64,7 @@ function addQuestion(){
 		}
 	}
 
-	xmlhttp.send(params);
+	//xmlhttp.send(params);
 
 }
 
@@ -129,16 +133,16 @@ function extendQuery(){
 <!-- Insert Question -->
 <form id="content"  action="extendQuery()" >
 <div class="row">
+<div class="col-xs-6">
+<label for="question">What does the tip or shortcut do? (question)</label>
+<br>
+<textarea class="form-control" rows="20" name="question" id="question"></textarea>';
+</div >
 <div class="col-xs-6">	 
-<label for="answer">What is the tip or shortcut?</label>
+<label for="answer">What is the tip or shortcut? (answer)</label>
 <br>
 <textarea class='form-control' rows="20" name="answer" id="answer"></textarea>
 </div>
-<div class="col-xs-6">
-<label for="question">What does the tip or shortcut do?</label>
-<br>
-<textarea class='form-control' rows="20" name="question" id="question"></textarea>
-</div >
 
 </div>
 <br>

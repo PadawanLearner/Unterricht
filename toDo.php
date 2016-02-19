@@ -8,9 +8,12 @@ ToDo:
 -password protect insert: use hashed sql password
 -allow insertNew.php to take special characters, then add lots of new commands via csv file
 -change all script requires and includes to the scripts perspective
+-center layout on insertNew.php
+-add an admin page in which you can concatenate categories to sql file that retrieves the daily (by retreiving all wanted categories for you daily)
 -import large csv files with more content
+-make layout mobile friendly
 -allow carousel arrows to encapsulate more than a standard page
--use js to send the password via session to insert.php, hash it for security
+-decide between SSL or using your personal client hash 
 -make a ctr for each question, and select only questions that are below the average of the ctrs
 -figure out how to send specific changed files to filezilla via command line 
 -make timer for each daily
