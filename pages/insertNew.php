@@ -93,7 +93,7 @@ function reset(){
 function insertQuestion(){
 	xmlhttp=new XMLHttpRequest(); //make ajax object
 	var params = "action=insert"
-		xmlhttp.open("POST","insert.php",true);
+		xmlhttp.open("POST","insert.php",true);//Really no need for this to be async but I wanted the experience
 
 	//Send the proper header information along with the request
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -136,7 +136,7 @@ function extendQuery(){
 <div class="col-xs-6">
 <label for="question">What does the tip or shortcut do? (question)</label>
 <br>
-<textarea class="form-control" rows="20" name="question" id="question"></textarea>';
+<textarea class="form-control" rows="20" name="question" id="question"></textarea>
 </div >
 <div class="col-xs-6">	 
 <label for="answer">What is the tip or shortcut? (answer)</label>
@@ -146,6 +146,8 @@ function extendQuery(){
 
 </div>
 <br>
+<div class="row">
+<div class="col-xs-12 text-center">	 
 <!-- Need checkboxes for category plus a section for "new" category-->
 <label for="questionCategory">What program or platform is this tip or shortcut for?</label>
 <br>
@@ -153,6 +155,8 @@ function extendQuery(){
 require "regulate.php";
 displayCategories();
 ?>
+</div>
+</div>
 <!-- <input type="text" class="form-control" name="category" id="category"> -->
 <br>
 <!-- <button type="submit" name="addAnother">Add Another </button>-->
