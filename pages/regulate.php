@@ -34,7 +34,9 @@ function displayCategories(){
 
 	/* fetch values */
 	while (mysqli_stmt_fetch($GLOBALS['stmt'])) {
-		echo "<input type='radio' name='category' value='".$category."'>".$category;
+		//echo "<input  type='radio' class='big' name='category' value='".$category."'>".$category."<span style='white-space: nowrap;'> &nbsp;&nbsp;&nbsp; </span>";
+		echo "<input  type='radio' class='big' name='category' value='".$category."'>".$category."&nbsp;&nbsp;&nbsp;";
+
 	}
 
 	/* close statement */
