@@ -36,21 +36,22 @@ function addQuestion(){
 	You have to store the following elements into a variable, because if you just used getElementsByName as this script and the  DOM is loaded, then getElementsByName would fail to find the specified element. This is because those elements haven't been loaded yet (they are loaded below after this head script).  By using a variable, when addQuestion is called they have had enough time to be loaded, so the variable can in fact find them upon its initialization
 	*/
 	var questionText = document.getElementsByName("question");
+	var answerText = document.getElementsByName("answer");
+	var checkedButton = getCheckedRadio(document.getElementsByName("category"));
 	if (!questionText[0].value)
 		alert ("No Question entered");
 
-	var answerText = document.getElementsByName("answer");
-	if (!answerText[0].value)
+	else if (!answerText[0].value)
 		alert ("No Answer entered");
 
-	var checkedButton = getCheckedRadio(document.getElementsByName("category"));
-	if (!checkedButton) {
+	else if (!checkedButton) {
 		alert("No Category selected");
 	}
+	else{
 
 	xmlhttp=new XMLHttpRequest(); //make ajax object
-	var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+checkedButton.value;
-	xmlhttp.open("POST","insert.php",true);
+	var params = "action=add&question="+document.getElementById("question").value+"&answer="+document.getElementById("answer").value+"&category="+checkedButton.value+"&password="+document.getElementById("password").value;
+	xmlhttp.open("POST","insert.php",false);//There is no reason to use ajax here, other than for my own personal experience
 
 	//Send the proper header information along with the request
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -64,8 +65,9 @@ function addQuestion(){
 		}
 	}
 
-	//xmlhttp.send(params);
+	xmlhttp.send(params);
 
+}
 }
 
 /*
@@ -168,11 +170,11 @@ displayCategories();
 <br>
 <br>
 <br>
-<form  action='insert.php' method='post' accept-charset='UTF-8'>
+<form  action='javascript:addQuestion()' method='post'  accept-charset='UTF-8'>
 <fieldset >
 <label for='password' >Password:</label>
 <input type='password' name='password' id='password' maxlength="50" />
-<input type='submit' name='Submit' value='Submit Questions' />
+<input type='submit' name='Submit' value='Submit Content' />
 </fieldset>
 </form>
 </body>

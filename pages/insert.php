@@ -1,93 +1,51 @@
 <?php
 session_start();
 require "regulate.php";
-if (isset($_POST['password'])){
+if ($_POST['action'] == 'add') {
 	connectTOSQL();
 	$query = file_get_contents( "../sql/getAdminHash.sql");
 	$stmt = mysqli_prepare( $GLOBALS['conn'], $query);
-        mysqli_stmt_execute($stmt);
+	mysqli_stmt_execute($stmt);
 
-        //Verify failure or success
-        if(!$stmt){
-                echo("Error description: " . mysqli_error($GLOBALS['conn']));
-        }
-        else{
-                // echo "Query Success";
-        }
+	//Verify failure or success
+	if(!$stmt){
+		echo("Error description: " . mysqli_error($GLOBALS['conn']));
+	}
+	else{
+		// echo "Query Success";
+	}
 
-        mysqli_stmt_bind_result($stmt, $adminInfo);
+	mysqli_stmt_bind_result($stmt, $adminInfo);
 
 	$hashFromDb = "";
-        while (mysqli_stmt_fetch($stmt)) {
+	while (mysqli_stmt_fetch($stmt)) {
 		$hashFromDb = $adminInfo;
-        }
+	}
 	$isPassword = password_verify($_POST['password'],$hashFromDb);
-	var_dump($isPassword);//for debugging
-	closeSQLConnection();
-}
-else
-	echo "not set";
-/*
-if (!isset($_SESSION['insertQuestions'])){
-	$_SESSION['insertQuestions'] = array();
-	$_SESSION['insertAnswers'] = array();
-	$_SESSION['insertCategories'] = array();
-}
 
-elseif ($_POST['action'] == 'reset'){
-	unset($_SESSION['insertQuestions']);
-	unset($_SESSION['insertAnswers']);
-	unset($_SESSION['insertCategories']);
-}
-else{}
+	if(!$isPassword){
+		closeSQLConnection();
+		exit("Incorrect password");
+	}
+	else{
+		//$query= 'INSERT into questions (question, answer, category) values (?,?,?)';
+		$query = file_get_contents(dirname(dirname(__FILE__))."/sql/insertQuestionAnswerCategory.sql");
 
-if ($_POST['action'] == 'add'){
-	array_push($_SESSION['insertQuestions'], $_POST['question']);
-	array_push($_SESSION['insertAnswers'], $_POST['answer']);
-	array_push($_SESSION['insertCategories'], $_POST['category']);
-}
-else{}
-
-*/
-/*
-if ($_POST['action'] == 'insert' && (isset($_SESSION['insertPassword']))){
-	if ( sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertAnswers'])
-			||sizeof($_SESSION['insertQuestions'])!=sizeof($_SESSION['insertCategories']))
-		echo "Error-Please press the reset button and try again"; 
-	connectTOSQL();
-
-	//	echo sizeof($_SESSION['insertQuestions']);
-	for ($i=0;$i<sizeof($_SESSION['insertQuestions']);$i++){
-		$query= 'INSERT into questions (question, answer, category) values (?,?,?)';
 
 		//PDO mysqli insert question, each question has the question itself, the answer, and the category
 		$insertQuestionsStmt = mysqli_prepare( $GLOBALS['conn'], $query);         
 
-		mysqli_stmt_bind_param($insertQuestionsStmt, "sss", $_SESSION['insertQuestions'][$i], $_SESSION['insertAnswers'][$i], $_SESSION['insertCategories'][$i]);
+		mysqli_stmt_bind_param($insertQuestionsStmt, "sss", $_POST['question'], $_POST['answer'], $_POST['category']);
 		mysqli_stmt_execute($insertQuestionsStmt);
 		//Verify failure or success
 		if(!$insertQuestionsStmt){
 			echo("Error description: " . mysqli_error($GLOBALS['conn']));
 		}
-		else{
-			echo "Question inserted. Add button to return to home page";
-		}
 
+		closeSQLConnection();
+		exit("Content inserted and available for daily learning.");
 	}
-	unset($_SESSION['insertQuestions']);
-	unset($_SESSION['insertAnswers']);
-	unset($_SESSION['insertCategories']);
-	//Close connections
-	mysqli_close($GLOBALS['conn']);
 }
-else {
-	echo "Password not set";
-}
-
-*/
-
-//for debugging:
-//print_r ($_SESSION['insertQuestions']);	
-//print_r ($_SESSION['insertAnswers']);	
-//print_r ($_SESSION['insertCategories']);	
+else
+	echo "Why are you here";
 ?>

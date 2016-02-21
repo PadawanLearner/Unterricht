@@ -11,6 +11,9 @@ ToDo:
 -center layout on insertNew.php
 -add an admin page in which you can concatenate categories to sql file that retrieves the daily (by retreiving all wanted categories for you daily)
 -import large csv files with more content
+-make icons for each category
+-can you do a foreach loop for each categories
+-use ssl or make your own front end hash
 -make layout mobile friendly
 -allow carousel arrows to encapsulate more than a standard page
 -decide between SSL or using your personal client hash 
