@@ -15,6 +15,7 @@ require "regulate.php";
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="mainTheme.css">
 </head>
 
@@ -42,11 +43,11 @@ foreach ($days as $day){
 	else{
 		echo "<div class='item'>";
 	}
-	echo "<p><em>".$day."</em></p>";
+	echo "<p class='day'>".$day."</p>";
 	getDaily($day);
 	for ($i=0;$i<sizeof($_SESSION['dailies']);$i++){
-		echo "<br><p>".$_SESSION['dailies'][$_SESSION['ctr']][0]." tip of the day: </p>";
-		echo "<br><p>description: ". $_SESSION['dailies'][$_SESSION['ctr']][1]."</p>";
+		echo "<br><p class='category'>".$_SESSION['dailies'][$_SESSION['ctr']][0]."</p>";
+		echo "<br><p class='question'> ". $_SESSION['dailies'][$_SESSION['ctr']][1]."</p>";
 		echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" data-content="'.$_SESSION['dailies'][$_SESSION['ctr']][2].'">answer</button></p>';
 		echo "<br><br><br>";
 		$_SESSION['ctr']++;
@@ -73,7 +74,7 @@ closeSQLConnection();
 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 <span class="sr-only">next</span>
 </a>
-
+</div>
 <script>
 $(document).ready(function(){
 		$('[data-toggle="displayAnswer"]').popover();   

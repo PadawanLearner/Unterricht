@@ -5,33 +5,25 @@
 
 
 ToDo:
--password protect insert: use hashed sql password
 -allow insertNew.php to take special characters, then add lots of new commands via csv file
 -change all script requires and includes to the scripts perspective
--center layout on insertNew.php
 -add an admin page in which you can concatenate categories to sql file that retrieves the daily (by retreiving all wanted categories for you daily)
 -import large csv files with more content
 -make icons for each category
 -can you do a foreach loop for each categories
 -use ssl or make your own front end hash
--make layout mobile friendly
+-make layout mobile friendly by increasing text size
 -allow carousel arrows to encapsulate more than a standard page
--decide between SSL or using your personal client hash 
 -make a ctr for each question, and select only questions that are below the average of the ctrs
--figure out how to send specific changed files to filezilla via command line 
+-make script to  send specific changed files to filezilla via command line 
 -make timer for each daily
 -make a php function that echoes most recent bootstrap and jquery version, so you can update them in one place
 -add comments for functions
 -make category field in insertNew.php only allow radio buttons for more control
 -insert more content for Linux (use book) and find other categories like github.  When you add a category, make sure you update your sql statement
 -import a huge csv file full of shortcuts into you sql db(use your linux book as well)
--make frontends prettier for insertNew.php and theDaily.php (look into angular course)
 -use pngs for the linux/github/vim/etc logos above the tip of the day
 -make content in database time sensitive.  newly added items will have more of a probability of being chosen as opposed to older items.  Also implemented a "learned" tag that operates on a three strikes rule, at which point the item will be "learned" and have a drastically lower probability of being chosen
--create user story for insertNew.php.  
--make insertQuestion password protected
--look into best practices (specifically folder structures) for a portable app. example: readme files, install files, etc
--allow non-admin users to request and apply that a one-liner be reviewed to be put into the database and become a candidate for the Daily. Let the admin get an email when this happens	
 
 
 

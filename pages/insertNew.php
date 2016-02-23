@@ -119,6 +119,7 @@ function extendQuery(){
 	document.getElementById("myList").appendChild(node);
 }
 </script>
+<link rel="stylesheet" type="text/css" href="mainTheme.css">
 </head>
 
 <body>
@@ -164,12 +165,11 @@ displayCategories();
 <!-- <button type="submit" name="addAnother">Add Another </button>-->
 </form>
 
-<button onclick="addQuestion()" name="addAnother2">Click me to add another question</button><br>
-<button onclick="reset()" name="reset">I messed up.  Reset all the questions I was going to insert</button><br>
-<button onclick="insertQuestion()" name="insertQuestions">I'm done. Insert these questions into the database </button><br>
 <br>
 <br>
 <br>
+<div class="row">
+<div class="col-xs-12 text-center">	 
 <form  action='javascript:addQuestion()' method='post'  accept-charset='UTF-8'>
 <fieldset >
 <label for='password' >Password:</label>
@@ -177,5 +177,7 @@ displayCategories();
 <input type='submit' name='Submit' value='Submit Content' />
 </fieldset>
 </form>
+</div>
+</div>
 </body>
 </html>
