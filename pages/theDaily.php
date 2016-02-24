@@ -74,7 +74,6 @@ closeSQLConnection();
 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 <span class="sr-only">next</span>
 </a>
-</div>
 <script>
 $(document).ready(function(){
 		$('[data-toggle="displayAnswer"]').popover();   

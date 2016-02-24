@@ -21,6 +21,9 @@ float: none;
 display: inline-block;
 }
 }
+.carousel-control.left, .carousel-control.right{
+background-image: none;
+}
 
 /* Personal mods and classes */
 *{
