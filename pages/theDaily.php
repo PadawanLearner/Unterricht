@@ -15,7 +15,7 @@ require "regulate.php";
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="mainTheme.css">
 </head>
 
@@ -57,11 +57,11 @@ foreach ($days as $day){
 	echo "<br>";
 	echo "</div>";
 
-
 }
 closeSQLConnection();
 
 ?>
+
 </div>
 </div>
 </div>

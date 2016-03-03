@@ -24,7 +24,16 @@ display: inline-block;
 .carousel-control.left, .carousel-control.right{
 background-image: none;
 }
-
+.carousel-control .glyphicon-chevron-right {
+position:fixed;
+right: 5%;
+color:#3071a9;
+}
+.carousel-control .glyphicon-chevron-left {
+position:fixed;
+left: 5%;
+color:#3071a9;
+}
 /* Personal mods and classes */
 *{
 font-family:"Courier New","Palatino Linotype", "Book Antiqua", Palatino, serif;

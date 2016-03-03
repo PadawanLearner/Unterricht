@@ -5,6 +5,7 @@
 
 
 ToDo:
+-on insertNew, do you need the post tag for the form action?? try to insert something and see
 -allow insertNew.php to take special characters, then add lots of new commands via csv file
 -change all script requires and includes to the scripts perspective
 -add an admin page in which you can concatenate categories to sql file that retrieves the daily (by retreiving all wanted categories for you daily)
@@ -12,8 +13,6 @@ ToDo:
 -make icons for each category
 -can you do a foreach loop for each categories
 -use ssl or make your own front end hash
--make layout mobile friendly by increasing text size
--allow carousel arrows to encapsulate more than a standard page
 -make a ctr for each question, and select only questions that are below the average of the ctrs
 -make script to  send specific changed files to filezilla via command line 
 -make timer for each daily
@@ -22,20 +21,17 @@ ToDo:
 -make category field in insertNew.php only allow radio buttons for more control
 -insert more content for Linux (use book) and find other categories like github.  When you add a category, make sure you update your sql statement
 -import a huge csv file full of shortcuts into you sql db(use your linux book as well)
--use pngs for the linux/github/vim/etc logos above the tip of the day
--make content in database time sensitive.  newly added items will have more of a probability of being chosen as opposed to older items.  Also implemented a "learned" tag that operates on a three strikes rule, at which point the item will be "learned" and have a drastically lower probability of being chosen
 
 
 
 BUGS:
--insertNew.php: click "Im done. Insert these questions..." button | This will cause an array bounds error for insert.php
--insertNew.php: after filling out input forms, click "Click me to add another question" | This does not erase the content after its been added to the queue nor does it show up on the HTML page for user affirmation that it has been inserted
+-navbar not showing up on mobile
 
 Each "daily" will have:
 -a Linux command review &|| question
 -a meditation tip
--make dailies have a foriegn key
--daily language word
+-testing/QA/hacking tip of the day
+-daily spanish word
 -a conceptual image
 -a Vim command
 -Windows batch command
@@ -45,7 +41,6 @@ Each "daily" will have:
 -a definition of a word you want to incorporate into your language.
 -a tricky syntax of the day line
 -a paragraph or phrase from rethinking your wetware
--*future*: daily quote/headline/daily tech defn/anything on your morning routine webpages	
 -*future*: includes a daily picture of a concept that is illustrated completely as visual. Example: http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg
 */
 ?>

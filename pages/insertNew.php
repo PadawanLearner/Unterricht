@@ -137,12 +137,12 @@ function extendQuery(){
 <form id="content"  action="extendQuery()" >
 <div class="row">
 <div class="col-xs-6">
-<label for="question">What does the tip or shortcut do? (question)</label>
+<label for="question">What does the tip do? (question)</label>
 <br>
 <textarea class="form-control" rows="20" name="question" id="question"></textarea>
 </div >
 <div class="col-xs-6">	 
-<label for="answer">What is the tip or shortcut? (answer)</label>
+<label for="answer">What is the tip? (answer)</label>
 <br>
 <textarea class='form-control' rows="20" name="answer" id="answer"></textarea>
 </div>
@@ -152,7 +152,7 @@ function extendQuery(){
 <div class="row">
 <div class="col-xs-12 text-center">	 
 <!-- Need checkboxes for category plus a section for "new" category-->
-<label for="questionCategory">What program or platform is this tip or shortcut for?</label>
+<label for="questionCategory">What category is this tip for?</label>
 <br>
 <?php
 require "regulate.php";
@@ -170,7 +170,7 @@ displayCategories();
 <br>
 <div class="row">
 <div class="col-xs-12 text-center">	 
-<form  action='javascript:addQuestion()' method='post'  accept-charset='UTF-8'>
+<form  action='javascript:addQuestion()' accept-charset='UTF-8'>
 <fieldset >
 <label for='password' >Password:</label>
 <input type='password' name='password' id='password' maxlength="50" />
