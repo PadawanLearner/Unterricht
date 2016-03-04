@@ -5,12 +5,14 @@
 
 
 ToDo:
--on insertNew, do you need the post tag for the form action?? try to insert something and see
 -allow insertNew.php to take special characters, then add lots of new commands via csv file
 -change all script requires and includes to the scripts perspective
 -add an admin page in which you can concatenate categories to sql file that retrieves the daily (by retreiving all wanted categories for you daily)
+-refactor js to reference one file
+-make sure when timer hits zero that user gets message to refresh the page
 -import large csv files with more content
 -make icons for each category
+-make a cleanup function in case chron fails
 -can you do a foreach loop for each categories
 -use ssl or make your own front end hash
 -make a ctr for each question, and select only questions that are below the average of the ctrs
