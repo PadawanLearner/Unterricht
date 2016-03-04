@@ -24,8 +24,6 @@ ToDo:
 
 
 
-BUGS:
--navbar not showing up on mobile
 
 Each "daily" will have:
 -a Linux command review &|| question

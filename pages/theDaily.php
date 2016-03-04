@@ -22,12 +22,10 @@ require "regulate.php";
 
 <body>
 <nav class="navbar navbar-default" role="navigation">
-<div class="navbar-collapse collapse">
 <ul class="nav nav-justified">
 <li><a href="theDaily.php">see the daily!</a></li>
 <li><a href="insertNew.php">insert content</a></li>
 </ul>
-</div>
 </nav>
 <br>
 <div class="carouselWrapper">  
