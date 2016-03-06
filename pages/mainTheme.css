@@ -22,7 +22,7 @@ display: inline-block;
 }
 }
 .carousel-control.left, .carousel-control.right{
-background-image: none;
+position:fixed;
 }
 .carousel-control .glyphicon-chevron-right {
 position:fixed;
