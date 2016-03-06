@@ -15,6 +15,14 @@ require "regulate.php";
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+		$('[data-toggle="displayAnswer"]').popover();   
+		});
+
+//http://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
+//With personal additions for hours and days, plus timing for expiring dailies
+</script>
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="mainTheme.css">
 </head>
@@ -28,13 +36,6 @@ require "regulate.php";
 </ul>
 </nav>
 <br>
-<div>Registration closes in <span id="timerSunday"></span> minutes!</div>
-<div>Registration closes in <span id="timerMonday"></span> minutes!</div>
-<div>Registration closes in <span id="timerTuesday"></span> minutes!</div>
-<div>Registration closes in <span id="timerWednesday"></span> minutes!</div>
-<div>Registration closes in <span id="timerThursday"></span> minutes!</div>
-<div>Registration closes in <span id="timerFriday"></span> minutes!</div>
-<div>Registration closes in <span id="timerSaturday"></span> minutes!</div>
 <div class="carouselWrapper">  
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 <div class="carousel-inner">
@@ -49,9 +50,11 @@ foreach ($days as $day){
 		echo "<div class='item'>";
 	}
 	echo "<p class='day'>".$day."</p>";
-	echo "<p id='timer".$day."'>".$day."</p>";
+
+
 	?>
 		<?php
+	echo "<div><span id='timer".$day."'></span> remaining</div>";
 		getDaily($day);
 	for ($i=0;$i<sizeof($_SESSION['dailies']);$i++){
 		echo "<br><p class='category'>".$_SESSION['dailies'][$_SESSION['ctr']][0]."</p>";
@@ -67,7 +70,6 @@ foreach ($days as $day){
 
 }
 closeSQLConnection();
-
 ?>
 
 </div>
@@ -82,45 +84,51 @@ closeSQLConnection();
 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 <span class="sr-only">next</span>
 </a>
-<script>
-$(document).ready(function(){
-		$('[data-toggle="displayAnswer"]').popover();   
-		});
+<?php
 
-//http://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
-//With personal additions for hours and days, plus timing for expiring dailies
+echo "
+<script>
 function startTimer(duration, display) {
 	var timer = duration, days, hours, minutes, seconds;
 	setInterval(function () {
+		days = parseInt(timer / 86400);	
+		hours   = parseInt((timer % 86400) / 3600 , 10);
+		minutes = parseInt((timer / 60) % 60, 10);
+		seconds = parseInt(timer % 60, 10);
 
-			days = parseInt(timer / 86400);	
-			hours   = parseInt((timer % 86400) / 3600 , 10);
-			minutes = parseInt((timer / 60) % 60, 10);
-			seconds = parseInt(timer % 60, 10);
+		days = days < 10 ? '0' + days: days;
+		hours = hours < 10 ? '0' + hours : hours;
+		minutes = minutes < 10 ? '0' + minutes : minutes;
+		seconds = seconds < 10 ? '0' + seconds : seconds;
 
-			days = days < 10 ? "0" + days: days;
-			hours = hours < 10 ? "0" + hours : hours;
-			minutes = minutes < 10 ? "0" + minutes : minutes;
-			seconds = seconds < 10 ? "0" + seconds : seconds;
+		display.text(days + ':' + hours + ':' + minutes + ':' + seconds);
 
-			display.text(days + ":" + hours + ":" + minutes + ":" + seconds);
-
-			if (--timer < 0) {
-			timer = duration;
-			}
-			}, 1000);
-}
-
-jQuery(function ($) {
-		var timeUntilResetInSeconds = 25 * 60 * 60,
-		//days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-		days = ["Sunday","Monday"];
-		for (var i=0; i<days.length; i++){
-			display = $('#timer' + days[i])
-			startTimer(timeUntilResetInSeconds, display);
+		if (--timer < 0) {
+			window.alert('This daily has expired, please refresh the page.');
+			timer = 0;
 		}
-		});
+		}, 1000);
+}
+function getSecondsLeftInToday(){
+	var d = new Date();
+	var hoursLeftToday  = 24 - d.getHours(); 
+	var moduloMinutesLeftToday = 60 - d.getMinutes();
+	var moduloSecondsLeftToday = 60 - d.getSeconds();
+	return hoursLeftToday*60*60 + moduloMinutesLeftToday*60 + moduloSecondsLeftToday;
+};
+jQuery(function ($) {
+	var d = new Date();
+	dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+	days = [];
+	for (var i=0; i<dayNames.length; i++)
+		days.push(dayNames[d.getDay()+i]); 
+	for (var i=0; i<days.length; i++){
+		display = $('#timer' + days[i])
+		startTimer(i*86400 + getSecondsLeftInToday(), display);
+	}
+	});
 </script>
-
+";
+?>
 </body>
 </html>
