@@ -121,7 +121,7 @@ jQuery(function ($) {
 	dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	days = [];
 	for (var i=0; i<dayNames.length; i++)
-		days.push(dayNames[d.getDay()+i]); 
+		days.push(dayNames[(d.getDay()+i)%7]); 
 	for (var i=0; i<days.length; i++){
 		display = $('#timer' + days[i])
 		startTimer(i*86400 + getSecondsLeftInToday(), display);
