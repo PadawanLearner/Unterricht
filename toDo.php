@@ -6,6 +6,7 @@
 
 ToDo:
 -allow insertNew.php to take special characters, then add lots of new commands via csv file
+-make a ctr for each question, and select only questions that are below the average of the ctrs
 -change all script requires and includes to the scripts perspective
 -add an admin page in which you can concatenate categories to sql file that retrieves the daily (by retreiving all wanted categories for you daily)
 -refactor js to reference one file
@@ -15,9 +16,7 @@ ToDo:
 -make a cleanup function in case chron fails
 -can you do a foreach loop for each categories
 -use ssl or make your own front end hash
--make a ctr for each question, and select only questions that are below the average of the ctrs
 -make script to  send specific changed files to filezilla via command line 
--make timer for each daily
 -make a php function that echoes most recent bootstrap and jquery version, so you can update them in one place
 -add comments for functions
 -make category field in insertNew.php only allow radio buttons for more control

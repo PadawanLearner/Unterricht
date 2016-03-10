@@ -1,4 +1,19 @@
 <?php 
+function appendCurrentDailyCategories($newCategory){  //php -r "require 'regulate.php';appendCurrentDailyCategories('someNewCategoryChangeMePlease');"
+	$appendedCategoryQuery = 
+	'UNION
+	(
+	SELECT questions.questionId, DAYNAME(CURDATE()) as day, WEEK(CURDATE()) as week
+	FROM questions
+	LEFT JOIN dailies
+	ON questions.questionId = dailies.questionId
+	WHERE category = "'.$newCategory.'" AND dailies.questionId IS NULL
+	ORDER BY RAND()
+	LIMIT 1
+	)';
+
+	file_put_contents(dirname(dirname(__FILE__)).'/sql/createNewDaily.sql',$appendedCategoryQuery, FILE_APPEND | LOCK_EX); 
+}
 function connectToSQL(){
 	//The first connection is for localhost testing of the app	
 	if($_SERVER['HTTP_HOST'] == "localhost"){
