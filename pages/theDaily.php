@@ -7,6 +7,7 @@ require "regulate.php";
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/png" href="../favicon.ico"/>
 <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
