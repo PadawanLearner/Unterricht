@@ -16,6 +16,7 @@ else{
 // echo "Query Success";
 }
 $query= file_get_contents("../sql/deleteOldDaily.sql");
+//Resume work here: make an sql file that increments ctrs for the daily selected questions
 $stmt = mysqli_query( $GLOBALS['conn'], $query);
 closeSQLConnection();
 ?>

@@ -1,5 +1,9 @@
 <?php 
-function appendCurrentDailyCategories($newCategory){  //php -r "require 'regulate.php';appendCurrentDailyCategories('someNewCategoryChangeMePlease');"
+function appendCurrentDailyCategories($newCategory){ 
+//From the pages dir:
+//php -r "require 'regulate.php';appendCurrentDailyCategories('someNewCategoryChangeMePlease');"
+
+
 	$appendedCategoryQuery = 
 	'UNION
 	(
@@ -7,7 +11,7 @@ function appendCurrentDailyCategories($newCategory){  //php -r "require 'regulat
 	FROM questions
 	LEFT JOIN dailies
 	ON questions.questionId = dailies.questionId
-	WHERE category = "'.$newCategory.'" AND dailies.questionId IS NULL
+	WHERE category = "'.$newCategory.'" AND dailies.questionId IS NULL AND ctr <= (SELECT AVG(ctr) FROM questions AND category="'.$newCategory.'")
 	ORDER BY RAND()
 	LIMIT 1
 	)';
@@ -61,36 +65,6 @@ function displayCategories(){
 
 }
 
-function isDailyOutdated($day){
-	$query = "SELECT week 
-	FROM dailies 
-	WHERE day = '$day' 
-	ORDER BY RAND() 
-	LIMIT 1";  
-
-	$stmt = mysqli_prepare( $GLOBALS['conn'], $query);		
-	mysqli_stmt_execute($stmt);
-
-	//Verify failure or success
-	if(!$stmt){
-		echo("Error description: " . mysqli_error($GLOBALS['conn']));
-	}
-	else{
-		// echo "Query Success";
-	}
-
-	mysqli_stmt_bind_result($stmt, $week);
-	$outdated = false;
-	while (mysqli_stmt_fetch($stmt)) {		
-		//echo "<BR>sql week: ".$week." php week reg: ".Date("W");
-		if ($week == (Date("W")))
-			$outdated = false;
-		else
-			$outdated = true;
-	}
-		//echo "<BR> truth value: ".$outdated;
-	return $outdated;
-}
 function getDaily($day){
 
 	//PDO mysqli insert question, each question has the question itself, the answer, and the category
