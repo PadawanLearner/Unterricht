@@ -3,10 +3,9 @@ require "regulate.php";
 connectToSQL();
 $query = "SET time_zone = '-5:00'";
 $stmt = mysqli_query( $GLOBALS['conn'], $query);
-$query =file_get_contents("../sql/createNewDaily.sql"); 
+$query =file_get_contents(dirname(dirname(__FILE__))."/createNewDaily.sql"); 
 $stmt = mysqli_query( $GLOBALS['conn'], $query);
 //TODO: make this a transaction so 2 users updating a daily cannot happen at the same time
-//mysqli_stmt_execute($stmt);
 
 //Verify failure or success
 if(!$stmt){
@@ -15,8 +14,10 @@ if(!$stmt){
 else{
 // echo "Query Success";
 }
-$query= file_get_contents("../sql/deleteOldDaily.sql");
-//Resume work here: make an sql file that increments ctrs for the daily selected questions
+$query= file_get_contents(dirname(dirname(__FILE__))."/deleteOldDaily.sql");
+$stmt = mysqli_query( $GLOBALS['conn'], $query);
+
+$query= file_get_contents(dirname(dirname(__file__))."/incrementDailyQuestionCtrs.sql");
 $stmt = mysqli_query( $GLOBALS['conn'], $query);
 closeSQLConnection();
 ?>

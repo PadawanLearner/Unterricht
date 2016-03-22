@@ -3,7 +3,6 @@ function appendCurrentDailyCategories($newCategory){
 //From the pages dir:
 //php -r "require 'regulate.php';appendCurrentDailyCategories('someNewCategoryChangeMePlease');"
 
-
 	$appendedCategoryQuery = 
 	'UNION
 	(
@@ -16,7 +15,7 @@ function appendCurrentDailyCategories($newCategory){
 	LIMIT 1
 	)';
 
-	file_put_contents(dirname(dirname(__FILE__)).'/sql/createNewDaily.sql',$appendedCategoryQuery, FILE_APPEND | LOCK_EX); 
+	file_put_contents(dirname(dirname(__file__)).'/sql/createnewdaily.sql',$appendedcategoryquery, file_append | lock_ex); 
 }
 function connectToSQL(){
 	//The first connection is for localhost testing of the app	
@@ -137,6 +136,27 @@ function closeSQLConnection(){
 
 	mysqli_close($GLOBALS['conn']);
 }
+
+function incrementDailyQuestionCtrs(){
+
+	$query = "SET time_zone = '-5:00'";
+	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
+
+	//$query= file_get_contents("../sql/incrementDailyQuestionCtrs.sql");
+	$query= file_get_contents(dirname(dirname(__file__))."/incrementDailyQuestionCtrs.sql");
+	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
+	//TODO: make this a transaction so 2 users updating a daily cannot happen at the same time
+	mysqli_stmt_execute($stmt);
+
+	//Verify failure or success
+	if(!$stmt){
+		echo("Error description: " . mysqli_error($GLOBALS['conn']));
+	}
+	else{
+		// echo "Query Success";
+	}
+
+}
 function createNewDaily(){	
 	//PDO mysqli insert question, each question has the question itself, the answer, and the category
 	//TO DO: make a frontend comment stating that all dailies updated on EST time 
@@ -144,7 +164,7 @@ function createNewDaily(){
 	$query = "SET time_zone = '-5:00'";
 	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
 
-	$query= file_get_contents("../sql/createNewDaily.sql");
+	$query= file_get_contents(dirname(dirname(__file__))."/createNewDaily.sql");
 	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
 	//TODO: make this a transaction so 2 users updating a daily cannot happen at the same time
 	//mysqli_stmt_execute($stmt);
@@ -156,7 +176,7 @@ function createNewDaily(){
 	else{
 		// echo "Query Success";
 	}
-	$query= file_get_contents("../sql/deleteOldDaily.sql");
+	$query= file_get_contents(dirname(dirname(__file__))."/deleteOldDaily.sql");
 	$stmt = mysqli_query( $GLOBALS['conn'], $query);		
 //	mysqli_close($GLOBALS['conn']);
 
