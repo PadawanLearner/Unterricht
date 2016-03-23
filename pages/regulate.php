@@ -10,7 +10,7 @@ function appendCurrentDailyCategories($newCategory){
 	FROM questions
 	LEFT JOIN dailies
 	ON questions.questionId = dailies.questionId
-	WHERE category = "'.$newCategory.'" AND dailies.questionId IS NULL AND ctr <= (SELECT AVG(ctr) FROM questions AND category="'.$newCategory.'")
+	WHERE category = "'.$newCategory.'" AND dailies.questionId IS NULL AND ctr <= (SELECT CEILING(AVG(ctr)) FROM questions AND category="'.$newCategory.'")
 	ORDER BY RAND()
 	LIMIT 1
 	)';
