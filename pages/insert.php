@@ -21,16 +21,13 @@ if ($_POST['action'] == 'add') {
 	while (mysqli_stmt_fetch($stmt)) {
 		$hashFromDb = $adminInfo;
 	}
-	$isPassword = password_verify($_POST['password'],$hashFromDb);
 
-	if(!$isPassword){
+	if(!password_verify($_POST['password'],$hashFromDb)){
 		closeSQLConnection();
 		exit("Incorrect password");
 	}
 	else{
-		//$query= 'INSERT into questions (question, answer, category) values (?,?,?)';
-		$query = file_get_contents(dirname(dirname(__FILE__))."/sql/insertQuestionAnswerCategory.sql");
-
+		$query = file_get_contents(dirname(dirname(__FILE__))."/sql/insertQuestionAnswerCategory.sql")."'".$_POST['category']."'";
 
 		//PDO mysqli insert question, each question has the question itself, the answer, and the category
 		$insertQuestionsStmt = mysqli_prepare( $GLOBALS['conn'], $query);         

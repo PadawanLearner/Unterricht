@@ -3,16 +3,14 @@
 
 /*
 ToDo :
--allow insertNew.php to take special characters, then add lots of new commands via csv file
--make inserting content have avg(ctr) minus 5 or something so you will get it as the daily soon
--make a ctr for each question, and select only questions that are below the average of the ctrs
+-allow insertNew.php to take special characters, then add lots of new commands via csv file; perhaps write a js parser for special chars
+-make sure question text is centered and formatted 
 -write function to remove a daily category from learning
 -write js function to wipe out question, answer, and category selections after content has been inserted
 -alphabetize daily categories
 -backup sql files
 -make a cron log for failures?
 -ask SO questions about why "select * from table where col='$myVar'" fails when its in an sql file but not in a php script
--change all script requires and includes to the scripts perspective
 -refactor js to reference one file
 -make sure when timer hits zero that user gets message to refresh the page
 -import large csv files with more content
