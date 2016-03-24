@@ -69,6 +69,16 @@ jQuery(function ($) {
 
 
 <body>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
 <nav class="navbar navbar-default" role="navigation">
 <ul class="nav nav-justified">
 <li><a href="theDaily.php">see the daily!</a></li>
@@ -90,15 +100,25 @@ foreach ($days as $day){
 		echo "<div class='item'>";
 	}
 	echo "<p class='day'>".$day."</p>";
-
-
-	?>
-		<?php
-	echo "<div><span id='timer".$day."'></span> remaining</div>";
-		getDaily($day);
+	echo "<div>Reset time <span id='timer".$day."'></span></div>";
+	getDaily($day);
 	for ($i=0;$i<sizeof($_SESSION['dailies']);$i++){
 		echo "<br><p class='category'>".$_SESSION['dailies'][$_SESSION['ctr']][0]."</p>";
+		echo '
+		<div class="container-fluid">
+		<div class="row">
+		<div class="col-sm-2">
+		</div>
+		<div class="col-sm-8">
+		';
 		echo "<br><p class='question'> ". $_SESSION['dailies'][$_SESSION['ctr']][1]."</p>";
+		echo '
+		</div>
+		<div class="col-sm-2">
+		</div>
+		</div>
+		</div>
+		';
 		echo '<br><p><button type="button" class="btn btn-success" data-toggle="displayAnswer" data-content="'.$_SESSION['dailies'][$_SESSION['ctr']][2].'">answer</button></p>';
 		echo "<br><br><br>";
 		$_SESSION['ctr']++;

@@ -5,6 +5,7 @@
 ToDo :
 -allow insertNew.php to take special characters, then add lots of new commands via csv file; perhaps write a js parser for special chars
 -make sure question text is centered and formatted 
+-make html ids have the same quotes, either ' or "
 -write function to remove a daily category from learning
 -write js function to wipe out question, answer, and category selections after content has been inserted
 -alphabetize daily categories
