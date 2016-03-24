@@ -3,7 +3,7 @@ session_start();
 require "regulate.php";
 if ($_POST['action'] == 'add') {
 	connectTOSQL();
-	$query = file_get_contents( "../sql/getAdminHash.sql");
+	$query = file_get_contents(dirname(dirname(__FILE__))."/sql/getAdminHash.sql");
 	$stmt = mysqli_prepare( $GLOBALS['conn'], $query);
 	mysqli_stmt_execute($stmt);
 
@@ -32,7 +32,15 @@ if ($_POST['action'] == 'add') {
 		//PDO mysqli insert question, each question has the question itself, the answer, and the category
 		$insertQuestionsStmt = mysqli_prepare( $GLOBALS['conn'], $query);         
 
-		mysqli_stmt_bind_param($insertQuestionsStmt, "sss", $_POST['question'], $_POST['answer'], $_POST['category']);
+		/*
+		To avoid
+		http://drupal.stackexchange.com/questions/6322/strict-warning-only-variables-should-be-passed-by-reference-in-include
+		we must pass the post data by variables and not reference
+		*/
+		$question = mb_convert_encoding($_POST['question'], "HTML-ENTITIES", 'UTF-8');
+		$answer = mb_convert_encoding($_POST['answer'], "HTML-ENTITIES", 'UTF-8');
+
+		mysqli_stmt_bind_param($insertQuestionsStmt, "sss", $question, $answer, $_POST['category']);
 		mysqli_stmt_execute($insertQuestionsStmt);
 		//Verify failure or success
 		if(!$insertQuestionsStmt){
