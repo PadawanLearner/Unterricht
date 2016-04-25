@@ -3,26 +3,23 @@
 
 /*
 ToDo :
--make html ids have the same quotes, either ' or "
--write function to remove a daily category from learning
 -write js function to wipe out question, answer, and category selections after content has been inserted
--alphabetize daily categories
--backup sql files
--make a cron log for failures?
--ask SO questions about why "select * from table where col='$myVar'" fails when its in an sql file but not in a php script
 -refactor js to reference one file
--make sure when timer hits zero that user gets message to refresh the page
+-write function to remove a daily category from learning
+-make a php function that echoes most recent bootstrap and jquery version, so you can update them in one place
+-add comments
+-alphabetize daily categories; to do this it might be more effective to make an function that loops over alphabetized categories as elements, then writes them to the sql file
+-make html ids have the same quotes, either ' or "
+-backup sql files
+-wait a month, then read code and see if it makes sense
+-ask SO questions about why "select * from table where col='$myVar'" fails when its in an sql file but not in a php script
 -import large csv files with more content
 -make icons for each category
 -make a cleanup function in case chron fails
--can you do a foreach loop for each categories
 -use ssl or make your own front end hash
 -make script to  send specific changed files to filezilla via command line 
--make a php function that echoes most recent bootstrap and jquery version, so you can update them in one place
--add comments for functions
 -make category field in insertNew.php only allow radio buttons for more control
 -insert more content for Linux (use book) and find other categories like github.  When you add a category, make sure you update your sql statement
--import a huge csv file full of shortcuts into you sql db(use your linux book as well)
 
 
 
