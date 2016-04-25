@@ -70,16 +70,6 @@ jQuery(function ($) {
 
 
 <body>
- <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-8">
-    </div>
-    <div class="col-sm-2">
-    </div>
-  </div>
-</div>
 <nav class="navbar navbar-default" role="navigation">
 <ul class="nav nav-justified">
 <li><a href="theDaily.php">see the daily!</a></li>

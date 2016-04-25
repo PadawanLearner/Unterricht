@@ -15,7 +15,7 @@ function appendCurrentDailyCategories($newCategory){
 	LIMIT 1
 	)';
 
-	file_put_contents(dirname(dirname(__file__)).'/sql/createNewDaily.sql',$appendedcategoryquery, file_append | lock_ex); 
+	file_put_contents(dirname(dirname(__file__)).'/sql/createNewDaily.sql',$appendedCategoryQuery, FILE_APPEND | LOCK_EX); 
 }
 function connectToSQL(){
 	//The first connection is for localhost testing of the app	
@@ -84,6 +84,36 @@ function getDaily($day){
 	LEFT JOIN dailies 
 	ON questions.questionId = dailies.questionId 
 	WHERE category = 'Linux' AND dailies.day = '$day' 
+	ORDER BY RAND() 
+	LIMIT 1
+	)
+	UNION
+	(
+	SELECT question,answer,category 
+	FROM questions 
+	LEFT JOIN dailies 
+	ON questions.questionId = dailies.questionId 
+	WHERE category = 'Financials' AND dailies.day = '$day' 
+	ORDER BY RAND() 
+	LIMIT 1
+	)
+	UNION
+	(
+	SELECT question,answer,category 
+	FROM questions 
+	LEFT JOIN dailies 
+	ON questions.questionId = dailies.questionId 
+	WHERE category = 'Mindset' AND dailies.day = '$day' 
+	ORDER BY RAND() 
+	LIMIT 1
+	)
+	UNION
+	(
+	SELECT question,answer,category 
+	FROM questions 
+	LEFT JOIN dailies 
+	ON questions.questionId = dailies.questionId 
+	WHERE category = 'Testing' AND dailies.day = '$day' 
 	ORDER BY RAND() 
 	LIMIT 1
 	)
