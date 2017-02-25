@@ -1,7 +1,8 @@
 # The Daily
 
-LAMP stack
-Mobile friendly Bootstrap
+LAMP stack.
+
+Mobile friendly Bootstrap.
 
 A categorical number of questions are generated daily, entitled "The Daily".  
 
